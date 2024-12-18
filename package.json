@@ -7,12 +7,13 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "docker": "astro preview --host 0.0.0.0 --port 8080",
+    "docker": "npx serve dist -l 8080",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.30.2",
     "astro": "^5.0.2",
+    "serve": "^14.2.4",
     "sharp": "^0.32.5"
   }
 }
