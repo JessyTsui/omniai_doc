@@ -4,193 +4,2225 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OmniAI - 便捷且高效地访问所有AI模型</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="OmniAI提供企业级API服务，一站式访问所有主流AI模型，包括OpenAI、Claude、Gemini等。稳定快速，价格实惠。">
+    <meta name="keywords" content="AI API, OpenAI, Claude, Gemini, Midjourney, 人工智能, API服务, 企业级AI, AI接口代理, AIモデル, エンタープライズAPI, 日本語対応">
+    <meta name="author" content="OmniAI Team">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://api.pandalla.ai/">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="revisit-after" content="7 days">
+    <meta name="language" content="zh-CN">
+    <meta name="geo.region" content="CN">
+    <meta name="geo.placename" content="China">
+    <meta name="publisher" content="OmniAI Team">
+    <meta name="application-name" content="OmniAI">
+    <meta name="msapplication-TileColor" content="#0ea5e9">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="OmniAI - 便捷且高效地访问所有AI模型">
+    <meta property="og:description" content="以更实惠的价格提供企业级API服务，所有主流AI模型一站式访问">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://api.pandalla.ai">
+    <meta property="og:image" content="https://api.pandalla.ai/og-image.jpg">
+    <meta property="og:site_name" content="OmniAI">
+    <meta property="og:locale" content="zh_CN">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OmniAI - 便捷且高效地访问所有AI模型">
+    <meta name="twitter:description" content="以更实惠的价格提供企业级API服务，所有主流AI模型一站式访问">
+    <meta name="twitter:image" content="https://api.pandalla.ai/og-image.jpg">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "OmniAI",
+        "url": "https://api.pandalla.ai",
+        "logo": "https://api.pandalla.ai/favicon.svg",
+        "description": "OmniAI提供企业级API服务，一站式访问所有主流AI模型",
+        "foundingDate": "2024",
+        "industry": "Artificial Intelligence",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "CN"
+        },
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "email": "support@pandalla.ai",
+                "contactType": "technical support",
+                "availableLanguage": ["zh-CN", "en-US"]
+            },
+            {
+                "@type": "ContactPoint",
+                "email": "business@pandalla.ai",
+                "contactType": "sales",
+                "availableLanguage": ["zh-CN", "en-US"]
+            }
+        ],
+        "sameAs": [
+            "https://discord.gg/DSGHSMCv2H"
+        ],
+        "offers": {
+            "@type": "Offer",
+            "description": "AI模型接口代理服务",
+            "price": "0.3-1.8",
+            "priceCurrency": "USD",
+            "priceSpecification": {
+                "@type": "PriceSpecification",
+                "minPrice": "0.3",
+                "maxPrice": "1.8",
+                "priceCurrency": "USD",
+                "description": "官方价格倍数范围"
+            },
+            "availability": "https://schema.org/InStock",
+            "validFrom": "2024-01-01"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "AI模型服务",
+            "itemListElement": [
+                {
+                    "@type": "OfferCatalog",
+                    "name": "OpenAI模型",
+                    "description": "GPT-4, GPT-3.5等文本生成模型"
+                },
+                {
+                    "@type": "OfferCatalog",
+                    "name": "Claude模型",
+                    "description": "Anthropic Claude系列模型"
+                },
+                {
+                    "@type": "OfferCatalog",
+                    "name": "Gemini模型",
+                    "description": "Google Gemini系列模型"
+                },
+                {
+                    "@type": "OfferCatalog",
+                    "name": "Midjourney",
+                    "description": "AI图像生成服务"
+                }
+            ]
+        }
+    }
+    </script>
+
+    <!-- WebSite Structured Data for Search -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "OmniAI",
+        "url": "https://api.pandalla.ai",
+        "description": "企业级AI模型统一接入平台",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://api.pandalla.ai/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        },
+        "mainEntity": {
+            "@type": "Service",
+            "name": "AI模型API代理服务",
+            "description": "统一接入所有主流AI模型的企业级API服务",
+            "provider": {
+                "@type": "Organization",
+                "name": "OmniAI"
+            }
+        }
+    }
+    </script>
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#0ea5e9">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/omniai/brands/openai_logo.svg" as="image" type="image/svg+xml">
+    <link rel="preload" href="/omniai/brands/claude_logo.svg" as="image" type="image/svg+xml">
+    <link rel="preload" href="/omniai/brands/gemini_logo.svg" as="image" type="image/svg+xml">
+    <link rel="preload" href="/omniai/brands/midjourney_logo.svg" as="image" type="image/svg+xml">
+    
+    <!-- DNS prefetch for external domains -->
+    <link rel="dns-prefetch" href="//api.pandalla.ai">
+    <link rel="dns-prefetch" href="//cdn.discordapp.com">
+    
+    <!-- Preconnect to important third-party origins -->
+    <link rel="preconnect" href="https://api.pandalla.ai" crossorigin>
+    
+    <!-- Resource hints for better performance -->
+    <link rel="prefetch" href="/introduction/">
+    <link rel="prefetch" href="/guide/">
+    <link rel="prefetch" href="/model_price/">
+    
     <style>
-        .bg-clip-text {
-            -webkit-background-clip: text;
-            background-clip: text;
+        /* CSS Variables for theme system */
+        :root {
+            /* Light theme colors */
+            --bg-primary: #ffffff;
+            --bg-secondary: linear-gradient(45deg, #f0f9ff 0%, #f0fdf4 50%, #fdf4ff 100%);
+            --bg-gradient: linear-gradient(135deg, #0ea5e9 0%, #22c55e 50%, #d946ef 100%);
+            --bg-floating: rgba(255, 255, 255, 0.7);
+            --bg-nav: rgba(255, 255, 255, 0.85);
+            --bg-card: rgba(255, 255, 255, 0.8);
+            --bg-button-primary: linear-gradient(135deg, #0ea5e9 0%, #22c55e 50%, #d946ef 100%);
+            --bg-button-secondary: rgba(255, 255, 255, 0.9);
+            
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --text-nav: #475569;
+            
+            --border-light: rgba(0, 0, 0, 0.1);
+            --border-lighter: rgba(255, 255, 255, 0.3);
+            
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            
+            /* Floating shapes colors */
+            --shape-1: #0ea5e9;
+            --shape-2: #22c55e;
+            --shape-3: #d946ef;
+            --shape-4: #7dd3fc;
+            --shape-5: #86efac;
         }
-        
-        .decorative-dot {
+
+        [data-theme="dark"] {
+            /* Dark theme colors */
+            --bg-primary: #0f172a;
+            --bg-secondary: linear-gradient(45deg, #1e293b 0%, #164e63 50%, #581c87 100%);
+            --bg-gradient: linear-gradient(135deg, #0ea5e9 0%, #22c55e 50%, #d946ef 100%);
+            --bg-floating: rgba(30, 41, 59, 0.7);
+            --bg-nav: rgba(15, 23, 42, 0.85);
+            --bg-card: rgba(30, 41, 59, 0.8);
+            --bg-button-primary: linear-gradient(135deg, #0ea5e9 0%, #22c55e 50%, #d946ef 100%);
+            --bg-button-secondary: rgba(30, 41, 59, 0.9);
+            
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #64748b;
+            --text-nav: #cbd5e1;
+            
+            --border-light: rgba(255, 255, 255, 0.1);
+            --border-lighter: rgba(255, 255, 255, 0.05);
+            
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3);
+            --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.5);
+            
+            /* Floating shapes colors for dark mode */
+            --shape-1: #38bdf8;
+            --shape-2: #4ade80;
+            --shape-3: #e879f9;
+            --shape-4: #0ea5e9;
+            --shape-5: #22c55e;
+        }
+
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            overflow-x: hidden;
+            background: var(--bg-secondary);
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        /* Skip to main content for accessibility */
+        .skip-link {
             position: absolute;
-            width: 8px;
-            height: 8px;
+            top: -40px;
+            left: 6px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 10000;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* Screen reader only content */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Animation definitions */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(1deg); }
+            66% { transform: translateY(-10px) rotate(-1deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes textShine {
+            0% { background-position: -200px; }
+            100% { background-position: 200px; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Reduce motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .floating-shape {
+                animation: none !important;
+            }
+        }
+
+        /* Performance optimizations for mobile */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                will-change: transform;
+                transform: translateZ(0); /* Force hardware acceleration */
+            }
+            
+            .mobile-menu-overlay {
+                will-change: opacity;
+                transform: translateZ(0);
+            }
+        }
+
+        /* Touch interaction improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .btn:hover,
+            .control-btn:hover,
+            .mobile-menu-link:hover {
+                background: transparent;
+            }
+            
+            .btn:active,
+            .control-btn:active,
+            .mobile-menu-link:active {
+                transform: scale(0.98);
+                opacity: 0.8;
+            }
+        }
+
+        /* Background animations */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: var(--bg-secondary);
+            transition: background 0.3s ease;
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .floating-shape {
+            position: absolute;
             border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.1;
+            transition: background 0.3s ease;
+            will-change: transform;
         }
-        
-        .logo-grid {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 4rem;
-            margin: 0 auto;
-            flex-wrap: nowrap;
-            padding: 2rem;
-            max-width: 1200px;
-        }
-        
-        .logo-item {
-            flex: 0 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        .floating-shape:nth-child(1) {
             width: 80px;
             height: 80px;
-            transition: transform 0.3s ease;
-        }
-        
-        .logo-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .logo-item img {
-            width: 48px;
-            height: 48px;
-            object-fit: contain;
-            opacity: 0.85;
+            background: var(--shape-1);
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
         }
 
-        .gradient-bg {
-            background: linear-gradient(
-                135deg,
-                rgba(219, 234, 254, 0.6) 0%,
-                rgba(167, 243, 208, 0.6) 50%,
-                rgba(236, 254, 255, 0.6) 100%
-            );
+        .floating-shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            background: var(--shape-2);
+            top: 60%;
+            right: 20%;
+            animation-delay: 2s;
         }
 
-        .logo-section {
-            position: relative;
-            overflow: hidden;
-            padding: 1rem;
+        .floating-shape:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            background: var(--shape-3);
+            bottom: 30%;
+            left: 70%;
+            animation-delay: 4s;
         }
 
-        .nav-bg {
-            background: linear-gradient(
-                to right,
-                rgba(255, 255, 255, 0.9) 0%,
-                rgba(236, 254, 255, 0.9) 50%,
-                rgba(219, 234, 254, 0.9) 100%
-            );
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(219, 234, 254, 0.3);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        .floating-shape:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            background: var(--shape-4);
+            top: 10%;
+            right: 10%;
+            animation-delay: 1s;
+        }
+
+        .floating-shape:nth-child(5) {
+            width: 70px;
+            height: 70px;
+            background: var(--shape-5);
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 3s;
+        }
+
+        /* Disable animations on mobile for performance */
+        @media (max-width: 768px) {
+            .floating-shape {
+                animation: none;
+                opacity: 0.05;
+            }
+        }
+
+        /* Navigation */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--bg-nav);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-lighter);
+            box-shadow: var(--shadow-lg);
+            animation: slideInUp 0.8s ease-out;
+            transition: background 0.3s ease;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .nav-logo {
-            background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: var(--bg-gradient);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-logo:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        .nav-logo:focus {
+            outline: 2px solid var(--text-primary);
+            outline-offset: 2px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
         }
 
         .nav-link {
             position: relative;
-            color: #1e293b;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: var(--text-nav);
             font-weight: 500;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            overflow: hidden;
         }
 
-        .nav-link::after {
+        .nav-link::before {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background: linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
+            top: 0;
+            left: -100%;
             width: 100%;
+            height: 100%;
+            background: var(--bg-gradient);
+            transition: left 0.3s ease;
+            z-index: -1;
+            border-radius: 50px;
         }
 
-        .nav-link:hover {
-            background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+        .nav-link:hover::before,
+        .nav-link:focus::before {
+            left: 0;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus {
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            outline: none;
+        }
+
+        /* Control buttons */
+        .control-buttons {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .control-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-light);
+            position: relative;
+        }
+
+        .control-btn:hover,
+        .control-btn:focus {
+            background: var(--bg-gradient);
+            color: white;
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: var(--shadow-lg);
+            outline: none;
+        }
+
+        .control-btn:active {
+            transform: scale(0.95);
+            transition: all 0.1s ease;
+        }
+
+        .control-btn:focus {
+            outline: 2px solid var(--text-primary);
+            outline-offset: 2px;
+        }
+
+        .control-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Language dropdown */
+        .lang-dropdown {
+            position: relative;
+        }
+
+        .lang-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 0.5rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border-light);
+            backdrop-filter: blur(20px);
+            min-width: 120px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .lang-menu.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .lang-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border: none;
+            background: transparent;
+            width: 100%;
+            text-align: left;
+        }
+
+        .lang-item:first-child {
+            border-radius: 12px 12px 0 0;
+        }
+
+        .lang-item:last-child {
+            border-radius: 0 0 12px 12px;
+        }
+
+        .lang-item:hover,
+        .lang-item:focus {
+            background: var(--bg-gradient);
+            color: white;
+            outline: none;
+        }
+
+        .lang-item.active {
+            background: var(--bg-gradient);
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Mobile menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            color: var(--text-nav);
+            position: relative;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle:hover,
+        .mobile-menu-toggle:focus {
+            background: var(--bg-card);
+            outline: none;
+        }
+
+        .mobile-menu-toggle.active {
+            color: var(--text-primary);
+        }
+
+        /* Mobile Menu Panel */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: var(--bg-nav);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-left: 1px solid var(--border-light);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+            box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu.show {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .mobile-menu-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-close:hover,
+        .mobile-menu-close:focus {
+            background: var(--bg-card);
+        }
+
+        .mobile-menu-nav {
+            padding: 1rem 0;
+        }
+
+        .mobile-menu-link {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .mobile-menu-link:hover,
+        .mobile-menu-link:focus {
+            background: var(--bg-card);
+            border-bottom-color: var(--border-light);
+            transform: translateX(5px);
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .mobile-menu-link:active {
+            transform: translateX(10px) scale(0.98);
+            transition: all 0.1s ease;
+        }
+
+        .mobile-menu-controls {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .mobile-menu-controls .control-buttons {
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .mobile-menu-controls .control-btn {
+            width: 44px;
+            height: 44px;
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(2px);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Hero section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+            animation: slideInUp 0.8s ease-out 0.2s both;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .hero-badge:hover {
+            animation: bounce 0.6s ease-in-out;
+            background: var(--bg-floating);
+            border-color: rgba(14, 165, 233, 0.4);
+            transform: scale(1.05);
+            color: var(--text-primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            animation: slideInUp 0.8s ease-out 0.4s both;
+            transition: color 0.3s ease;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(4rem, 10vw, 6rem);
+            font-weight: 900;
+            background: var(--bg-gradient);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            margin: 2rem 0;
+            animation: scaleIn 1s ease-out 0.6s both;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .hero-subtitle:hover {
+            animation: pulse 0.8s ease-in-out;
+        }
+
+        .hero-subtitle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
+            z-index: -1;
+            border-radius: 50%;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: slideInUp 0.8s ease-out 0.8s both;
+            transition: color 0.3s ease;
+        }
+
+        .hero-description p {
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+            animation: slideInUp 0.8s ease-out 1s both;
+        }
+
+        /* Button styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:focus {
+            outline: 2px solid var(--text-primary);
+            outline-offset: 2px;
+        }
+
+        .btn-primary {
+            background: var(--bg-button-primary);
+            color: white;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0284c7 0%, #16a34a 50%, #c026d3 100%);
+            transition: left 0.3s ease;
+        }
+
+        .btn-primary:hover::before,
+        .btn-primary:focus::before {
+            left: 0;
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--shadow-2xl);
+            filter: brightness(1.1);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px) scale(0.98);
+            transition: all 0.1s ease;
+        }
+
+        .btn-secondary {
+            background: var(--bg-button-secondary);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-light);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary:hover,
+        .btn-secondary:focus {
+            background: var(--bg-card);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+            color: var(--text-primary);
+            border-color: rgba(14, 165, 233, 0.5);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(-1px) scale(0.98);
+            transition: all 0.1s ease;
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Partners section */
+        .partners-section {
+            animation: slideInUp 0.8s ease-out 1.2s both;
+        }
+
+        .partners-title {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .partners-title:hover {
+            color: var(--text-primary);
+            transform: scale(1.05);
+            font-weight: 600;
+        }
+
+        .logos-container {
+            background: var(--bg-floating);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            border: 1px solid var(--border-lighter);
+            box-shadow: var(--shadow-xl);
+            max-width: 900px;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+
+        .logos-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 2rem;
+            align-items: center;
+            justify-items: center;
+            min-height: 120px;
+        }
+
+        .logo-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border-radius: 16px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            min-height: 100px;
+            width: 100%;
+            border: 1px solid var(--border-light);
+        }
+
+        .logo-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-gradient);
+            opacity: 0.05;
+            transition: left 0.4s ease;
+        }
+
+        .logo-item:hover::before {
+            left: 0;
+        }
+
+        .logo-item:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: var(--shadow-2xl);
+            background: var(--bg-primary);
+        }
+
+        .logo-item img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-item:hover img {
+            transform: scale(1.1);
+            filter: brightness(1.1);
+        }
+
+        /* Error state for images */
+        .logo-item img[src=""],
+        .logo-item img:not([src]) {
+            display: none;
+        }
+
+        .logo-item img::after {
+            content: "Logo";
+            display: block;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Loading animation */
+        .fade-in {
+            opacity: 0;
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+
+        .fade-in:nth-child(1) { animation-delay: 0.1s; }
+        .fade-in:nth-child(2) { animation-delay: 0.2s; }
+        .fade-in:nth-child(3) { animation-delay: 0.3s; }
+        .fade-in:nth-child(4) { animation-delay: 0.4s; }
+        .fade-in:nth-child(5) { animation-delay: 0.5s; }
+        .fade-in:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Error message system */
+        .error-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.3s ease;
+            z-index: 10000;
+            max-width: 320px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .error-message.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Error message types */
+        .error-message.error {
+            background: #ef4444;
+            border-left: 4px solid #dc2626;
+        }
+
+        .error-message.warning {
+            background: #f59e0b;
+            border-left: 4px solid #d97706;
+        }
+
+        .error-message.success {
+            background: #10b981;
+            border-left: 4px solid #059669;
+        }
+
+        .error-message.info {
+            background: #3b82f6;
+            border-left: 4px solid #2563eb;
+        }
+
+        /* Mobile error message positioning */
+        @media (max-width: 640px) {
+            .error-message {
+                top: 10px;
+                right: 10px;
+                left: 10px;
+                max-width: none;
+                transform: translateY(-100%);
+            }
+
+            .error-message.show {
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero-section {
+                padding: 6rem 1rem 3rem;
+                min-height: 100vh;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                padding: 0 1rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+                line-height: 1.2;
+                margin-bottom: 1rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+                line-height: 1.6;
+                margin-bottom: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+                padding: 0.875rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .logos-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+
+            .logos-container {
+                padding: 2rem 1rem;
+                margin: 0 1rem;
+            }
+
+            .logo-item {
+                padding: 1rem;
+            }
+
+            .nav-content {
+                padding: 1rem;
+            }
+
+            .control-buttons {
+                gap: 0.25rem;
+            }
+
+            .control-btn {
+                width: 40px;
+                height: 40px;
+                min-width: 40px;
+                min-height: 40px;
+            }
+
+            .lang-menu {
+                right: -10px;
+                min-width: 120px;
+            }
+
+            .partners-title {
+                font-size: 1.25rem;
+                margin-bottom: 1.5rem;
+            }
+
+            /* Improve touch targets */
+            .mobile-menu-link {
+                padding: 1rem 1.5rem;
+                font-size: 1.1rem;
+                min-height: 48px;
+                display: flex;
+                align-items: center;
+            }
+
+            .mobile-menu-close {
+                min-width: 44px;
+                min-height: 44px;
+                padding: 0.75rem;
+            }
+
+            .mobile-menu-toggle {
+                min-width: 44px;
+                min-height: 44px;
+                padding: 0.75rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 2.25rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+
+            .logos-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+            
+            .hero-description {
+                font-size: 0.95rem;
+            }
+
+            .hero-description p {
+                margin-bottom: 0.75rem;
+            }
+
+            .btn {
+                font-size: 0.95rem;
+                padding: 0.75rem 1.25rem;
+            }
+
+            .mobile-menu {
+                width: 100%;
+                right: -100%;
+            }
+
+            .mobile-menu.show {
+                right: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 5rem 0.75rem 2rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-description {
+                font-size: 0.9rem;
+            }
+
+            .logos-container {
+                padding: 1.5rem 0.75rem;
+                margin: 0 0.75rem;
+            }
+
+            .logo-item {
+                padding: 0.75rem;
+            }
+
+            .nav-content {
+                padding: 0.75rem;
+            }
+
+            .control-btn {
+                width: 36px;
+                height: 36px;
+                min-width: 36px;
+                min-height: 36px;
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --border-light: rgba(0, 0, 0, 0.3);
+                --text-secondary: #000000;
+            }
+            
+            [data-theme="dark"] {
+                --border-light: rgba(255, 255, 255, 0.3);
+                --text-secondary: #ffffff;
+            }
+        }
+
+        /* Theme transition */
+        .theme-transition {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
     </style>
 </head>
-<body class="min-h-screen bg-white text-gray-900 overflow-x-hidden gradient-bg">
-    <!-- Navigation -->
-    <nav class="flex justify-between items-center px-[5%] py-4 fixed top-0 w-full z-50 nav-bg">
-        <div class="flex items-center gap-2 text-2xl nav-logo">
-            OmniAI
-        </div>
-        <div class="flex gap-8 items-center">
-            <a href="/introduction/"
-               class="text-sm nav-link transition-all">
-                文档
-            </a>
-            <a href="https://api.pandalla.ai/pricing"
-               class="text-sm nav-link transition-all">
-                模型价格
-            </a>
-            <a href="https://api.pandalla.ai/topup"
-               class="text-sm nav-link transition-all">
-                余额
-            </a>
-        </div>
-    </nav>
+<body class="theme-transition">
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link">跳转到主要内容</a>
 
-    <!-- Hero Section -->
-    <section class="pt-32 pb-16 px-[5%] text-center relative min-h-screen flex flex-col items-center justify-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-            便捷且高效地<br/>访问所有AI模型
-        </h1>
-        <div class="text-6xl md:text-7xl font-bold my-8 bg-gradient-to-r from-blue-500 via-teal-500 to-green-500 text-transparent bg-clip-text">
-            OmniAI
-        </div>
-        <div class="max-w-3xl mx-auto mb-12 text-lg text-gray-700 leading-relaxed">
-            <p>以更实惠的价格提供企业级API服务，所有主流AI模型一站式访问！</p>
-            <p>完全兼容各平台接口，零开发基础即可轻松接入。</p>
-            <p>不用担心网络问题，稳定快速，高效整合资源，助您轻松实现AI应用！！</p>
-        </div>
+    <!-- Error message container -->
+    <div id="error-message" class="error-message" role="alert" aria-live="polite"></div>
 
-        <div class="flex gap-4 justify-center mb-12">
-            <a href="https://api.pandalla.ai/token"
-               class="px-8 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors">
-                立即开始
-            </a>
-            <a href="/introduction/"
-               class="px-8 py-3 border border-gray-300 text-gray-900 font-medium rounded-lg hover:bg-gray-100 transition-colors">
-                查看文档
-            </a>
-        </div>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
 
-        <div class="text-center w-full">
-            <p class="text-sm text-gray-500 mb-6">支持以下平台商（更多供应商整合中）</p>
-            <div class="logo-section">
-                <div class="logo-grid">
-                    <div class="logo-item">
-                        <img src="/omniai/brands/openai_logo.svg" alt="OpenAI Logo">
-                    </div>
-                    <div class="logo-item">
-                        <img src="/omniai/brands/claude_logo.svg" alt="Claude Logo">
-                    </div>
-                    <div class="logo-item">
-                        <img src="/omniai/brands/qwen_logo.svg" alt="Qwen Logo">
-                    </div>
-                    <div class="logo-item">
-                        <img src="/omniai/brands/mistral_logo.svg" alt="Mistral Logo">
-                    </div>
-                    <div class="logo-item">
-                        <img src="/omniai/brands/stability_logo.svg" alt="Stability Logo">
-                    </div>
-                    <div class="logo-item">
-                        <img src="/omniai/brands/suno_logo.svg" alt="Suno Logo">
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
+        <div class="mobile-menu-header">
+            <a href="/" class="mobile-menu-logo" id="mobile-menu-title">OmniAI</a>
+            <button id="mobile-menu-close" class="mobile-menu-close" aria-label="关闭菜单">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M18 6L6 18M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <nav class="mobile-menu-nav" role="navigation" aria-label="移动端导航">
+            <a href="#" class="mobile-menu-link docs-link" data-en="Documentation" data-zh="文档" data-ja="ドキュメント">文档</a>
+            <a href="https://api.pandalla.ai/pricing" class="mobile-menu-link" data-en="Pricing" data-zh="模型价格" data-ja="モデル価格">模型价格</a>
+            <a href="https://api.pandalla.ai/topup" class="mobile-menu-link" data-en="Balance" data-zh="余额" data-ja="残高">余额</a>
+            <a href="https://api.pandalla.ai/token" class="mobile-menu-link" data-en="API Keys" data-zh="API密钥" data-ja="APIキー">API密钥</a>
+        </nav>
+        <div class="mobile-menu-controls">
+            <div class="control-buttons">
+                <button id="mobile-theme-toggle" class="control-btn" title="切换主题" aria-label="切换日夜主题">
+                    <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <path d="m12 1 0 2m0 18 0 2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M1 12l2 0m18 0 2 0M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                    </svg>
+                    <svg class="moon-icon" style="display: none;" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <div class="lang-dropdown">
+                    <button id="mobile-lang-toggle" class="control-btn" title="切换语言" aria-label="切换显示语言" aria-expanded="false" aria-haspopup="true">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+                        </svg>
+                    </button>
+                    <div id="mobile-lang-menu" class="lang-menu" role="menu" aria-labelledby="mobile-lang-toggle">
+                        <button class="lang-item active" data-lang="zh" role="menuitem">🇨🇳 中文</button>
+                        <button class="lang-item" data-lang="en" role="menuitem">🇺🇸 English</button>
+                        <button class="lang-item" data-lang="ja" role="menuitem">🇯🇵 日本語</button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Decorative Elements -->
-        <div class="decorative-dot bg-yellow-400" style="top: 20%; left: 10%;"></div>
-        <div class="decorative-dot bg-blue-400" style="top: 40%; right: 15%;"></div>
-        <div class="decorative-dot bg-green-400" style="bottom: 30%; left: 20%;"></div>
-    </section>
+    <!-- Animated background -->
+    <div class="animated-bg">
+        <div class="floating-shapes" aria-hidden="true">
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-container theme-transition" role="navigation" aria-label="主导航">
+        <div class="nav-content">
+            <a href="/" class="nav-logo" aria-label="OmniAI 首页">OmniAI</a>
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="#" class="nav-link docs-link" data-en="Docs" data-zh="文档" data-ja="ドキュメント">文档</a>
+                    <a href="https://api.pandalla.ai/pricing" class="nav-link" data-en="Pricing" data-zh="模型价格" data-ja="モデル価格">模型价格</a>
+                    <a href="https://api.pandalla.ai/topup" class="nav-link" data-en="Balance" data-zh="余额" data-ja="残高">余额</a>
+                </div>
+                <div class="control-buttons">
+                    <button id="theme-toggle" class="control-btn" title="切换主题" aria-label="切换日夜主题">
+                        <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <path d="m12 1 0 2m0 18 0 2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M1 12l2 0m18 0 2 0M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                        </svg>
+                        <svg class="moon-icon" style="display: none;" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                    <div class="lang-dropdown">
+                        <button id="lang-toggle" class="control-btn" title="切换语言" aria-label="切换显示语言" aria-expanded="false" aria-haspopup="true">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+                            </svg>
+                        </button>
+                        <div id="lang-menu" class="lang-menu" role="menu" aria-labelledby="lang-toggle">
+                            <button class="lang-item active" data-lang="zh" role="menuitem">🇨🇳 中文</button>
+                            <button class="lang-item" data-lang="en" role="menuitem">🇺🇸 English</button>
+                            <button class="lang-item" data-lang="ja" role="menuitem">🇯🇵 日本語</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="打开移动端菜单" aria-expanded="false">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M3 12h18M3 6h18M3 18h18"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <main id="main-content" class="hero-section">
+        <div class="hero-content">
+            <!-- Hero badge -->
+            <div class="hero-badge theme-transition" role="banner" aria-label="公告横幅">
+                <span data-en="🚀 New Upgrade · Faster and More Reliable AI Interface Service" data-zh="🚀 全新升级 · 更快更稳定的AI接口服务" data-ja="🚀 新しいアップグレード · より高速で信頼性の高いAIインターフェースサービス">🚀 全新升级 · 更快更稳定的AI接口服务</span>
+            </div>
+
+            <!-- Main title -->
+            <h1 class="hero-title theme-transition">
+                <span data-en="Convenient and Efficient<br>Access to All AI Models" data-zh="便捷且高效地<br>访问所有AI模型" data-ja="便利で効率的な<br>全てのAIモデルへのアクセス">便捷且高效地<br>访问所有AI模型</span>
+            </h1>
+
+            <!-- Brand name -->
+            <div class="hero-subtitle">OmniAI</div>
+
+            <!-- Description -->
+            <div class="hero-description theme-transition">
+                <p data-en="Provide enterprise-level API services at more affordable prices, one-stop access to all mainstream AI models" data-zh="以更实惠的价格提供企业级API服务，所有主流AI模型一站式访问" data-ja="より手頃な価格でエンタープライズレベルのAPIサービスを提供、主要なAIモデルへのワンストップアクセス">以更实惠的价格提供企业级API服务，所有主流AI模型一站式访问</p>
+                <p data-en="Fully compatible with various platform interfaces, easy access with zero development foundation" data-zh="完全兼容各平台接口，零开发基础即可轻松接入" data-ja="各プラットフォームのインターフェースと完全互換、開発基盤ゼロで簡単にアクセス可能">完全兼容各平台接口，零开发基础即可轻松接入</p>
+                <p data-en="No need to worry about network issues, stable and fast, efficient resource integration to help you easily realize AI applications" data-zh="不用担心网络问题，稳定快速，高效整合资源，助您轻松实现AI应用" data-ja="ネットワークの問題を心配する必要なし、安定で高速、効率的なリソース統合でAIアプリケーションの実現をサポート">不用担心网络问题，稳定快速，高效整合资源，助您轻松实现AI应用</p>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="hero-buttons">
+                <a href="https://api.pandalla.ai/token" class="btn btn-primary theme-transition" aria-describedby="get-started-desc">
+                    <span data-en="Get Started" data-zh="立即开始" data-ja="今すぐ始める">立即开始</span>
+                </a>
+                <a href="#" class="btn btn-secondary theme-transition docs-link" aria-describedby="view-docs-desc">
+                    <span data-en="View Docs" data-zh="查看文档" data-ja="ドキュメントを見る">查看文档</span>
+                </a>
+            </div>
+            
+            <!-- Hidden descriptions for screen readers -->
+            <div id="get-started-desc" class="sr-only" data-en="Navigate to API token management page to start using OmniAI services" data-zh="前往API令牌管理页面，开始使用OmniAI服务" data-ja="APIトークン管理ページに移動してOmniAIサービスの利用を開始">前往API令牌管理页面，开始使用OmniAI服务</div>
+            <div id="view-docs-desc" class="sr-only" data-en="Navigate to documentation page to learn about OmniAI features and usage" data-zh="前往文档页面，了解OmniAI的功能和使用方法" data-ja="ドキュメントページに移動してOmniAIの機能と使用方法を学ぶ">前往文档页面，了解OmniAI的功能和使用方法</div>
+
+            <!-- Partners section -->
+            <section class="partners-section" aria-labelledby="partners-title">
+                <h2 id="partners-title" class="partners-title theme-transition">
+                    <span data-en="Supported Platforms (More providers being integrated)" data-zh="支持以下平台商（更多供应商整合中）" data-ja="サポートしているプラットフォーム（さらなるプロバイダーを統合中）">支持以下平台商（更多供应商整合中）</span>
+                </h2>
+                <div class="logos-container theme-transition">
+                    <div class="logos-grid" role="list" aria-label="支持的AI服务提供商">
+                        <div class="logo-item fade-in theme-transition" role="listitem">
+                            <img src="/omniai/brands/openai_logo.svg" alt="OpenAI - GPT系列模型提供商" loading="lazy" onerror="handleImageError(this)">
+                        </div>
+                        <div class="logo-item fade-in theme-transition" role="listitem">
+                            <img src="/omniai/brands/claude_logo.svg" alt="Claude - Anthropic AI助手" loading="lazy" onerror="handleImageError(this)">
+                        </div>
+                        <div class="logo-item fade-in theme-transition" role="listitem">
+                            <img src="/omniai/brands/qwen_logo.svg" alt="通义千问 - 阿里云AI模型" loading="lazy" onerror="handleImageError(this)">
+                        </div>
+                        <div class="logo-item fade-in theme-transition" role="listitem">
+                            <img src="/omniai/brands/mistral_logo.svg" alt="Mistral - 开源AI模型" loading="lazy" onerror="handleImageError(this)">
+                        </div>
+                        <div class="logo-item fade-in theme-transition" role="listitem">
+                            <img src="/omniai/brands/stability_logo.svg" alt="Stability AI - 图像生成模型" loading="lazy" onerror="handleImageError(this)">
+                        </div>
+                        <div class="logo-item fade-in theme-transition" role="listitem">
+                            <img src="/omniai/brands/suno_logo.svg" alt="Suno - AI音乐生成" loading="lazy" onerror="handleImageError(this)">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Enhanced error handling utility
+        function showError(message, type = 'error', duration = 5000) {
+            try {
+                const errorEl = document.getElementById('error-message');
+                if (errorEl) {
+                    errorEl.textContent = message;
+                    errorEl.className = `error-message ${type}`;
+                    errorEl.classList.add('show');
+                    
+                    // Auto-hide after duration
+                    setTimeout(() => {
+                        errorEl.classList.remove('show');
+                    }, duration);
+                    
+                    // Allow manual dismissal
+                    errorEl.onclick = () => {
+                        errorEl.classList.remove('show');
+                    };
+                    
+                    // Add keyboard dismissal
+                    const handleKeydown = (e) => {
+                        if (e.key === 'Escape') {
+                            errorEl.classList.remove('show');
+                            document.removeEventListener('keydown', handleKeydown);
+                        }
+                    };
+                    document.addEventListener('keydown', handleKeydown);
+                }
+            } catch (error) {
+                console.error('Error displaying error message:', error);
+                // Fallback to console if error system fails
+                console.warn('Fallback error message:', message);
+            }
+        }
+
+        // Browser compatibility and connectivity checks
+        function initCompatibilityChecks() {
+            try {
+                // Check browser features
+                const features = {
+                    localStorage: 'localStorage' in window,
+                    fetch: 'fetch' in window,
+                    classList: 'classList' in document.createElement('div'),
+                    addEventListener: 'addEventListener' in window,
+                    customElements: 'customElements' in window
+                };
+
+                const unsupported = Object.keys(features).filter(feature => !features[feature]);
+                
+                if (unsupported.length > 0) {
+                    showError('您的浏览器可能不支持某些功能，建议使用更新版本的浏览器', 'warning', 8000);
+                    console.warn('Unsupported features:', unsupported);
+                }
+
+                // Check connectivity
+                if ('navigator' in window && 'onLine' in navigator) {
+                    if (!navigator.onLine) {
+                        showError('网络连接似乎已断开，某些功能可能无法使用', 'warning', 5000);
+                    }
+                    
+                    // Listen for connectivity changes
+                    window.addEventListener('online', () => {
+                        showError('网络连接已恢复', 'success', 3000);
+                    });
+                    
+                    window.addEventListener('offline', () => {
+                        showError('网络连接已断开', 'warning', 5000);
+                    });
+                }
+            } catch (error) {
+                console.error('Compatibility check failed:', error);
+            }
+        }
+
+        // Safe DOM helpers
+        function safeQuerySelector(selector) {
+            try {
+                return document.querySelector(selector);
+            } catch (error) {
+                console.error('Query selector failed:', selector, error);
+                return null;
+            }
+        }
+
+        function safeAddEventListener(element, event, handler, options = {}) {
+            try {
+                if (element && typeof element.addEventListener === 'function') {
+                    element.addEventListener(event, (e) => {
+                        try {
+                            handler(e);
+                        } catch (handlerError) {
+                            console.error('Event handler error:', handlerError);
+                            showError('操作执行时发生错误，请重试');
+                        }
+                    }, options);
+                    return true;
+                }
+                return false;
+            } catch (error) {
+                console.error('Failed to add event listener:', error);
+                return false;
+            }
+        }
+
+        // Image error handler
+        function handleImageError(img) {
+            const item = img.closest('.logo-item');
+            if (item) {
+                item.style.display = 'none';
+                console.warn('Failed to load image:', img.src);
+            }
+        }
+
+        // Theme management with error handling
+        class ThemeManager {
+            constructor() {
+                try {
+                    this.currentTheme = this.getStoredTheme() || this.getAutoTheme();
+                    this.init();
+                } catch (error) {
+                    console.error('Theme initialization failed:', error);
+                    this.currentTheme = 'light';
+                    this.init();
+                }
+            }
+
+            getStoredTheme() {
+                try {
+                    return localStorage.getItem('theme');
+                } catch (error) {
+                    console.warn('localStorage not available:', error);
+                    return null;
+                }
+            }
+
+            getAutoTheme() {
+                const hour = new Date().getHours();
+                return (hour >= 6 && hour < 18) ? 'light' : 'dark';
+            }
+
+            init() {
+                this.applyTheme(this.currentTheme);
+                this.bindEvents();
+                this.updateThemeIcon();
+            }
+
+            applyTheme(theme) {
+                try {
+                    document.documentElement.setAttribute('data-theme', theme);
+                    this.currentTheme = theme;
+                    
+                    // Update meta theme-color
+                    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+                    if (metaThemeColor) {
+                        metaThemeColor.setAttribute('content', theme === 'dark' ? '#1e293b' : '#0ea5e9');
+                    }
+                    
+                    // Store preference
+                    try {
+                        localStorage.setItem('theme', theme);
+                    } catch (error) {
+                        console.warn('Cannot save theme preference:', error);
+                    }
+                } catch (error) {
+                    console.error('Failed to apply theme:', error);
+                    showError('主题切换失败');
+                }
+            }
+
+            toggleTheme() {
+                const newTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+                this.applyTheme(newTheme);
+                this.updateThemeIcon();
+            }
+
+            updateThemeIcon() {
+                try {
+                    const sunIcon = document.querySelector('.sun-icon');
+                    const moonIcon = document.querySelector('.moon-icon');
+                    
+                    if (sunIcon && moonIcon) {
+                        if (this.currentTheme === 'light') {
+                            sunIcon.style.display = 'block';
+                            moonIcon.style.display = 'none';
+                        } else {
+                            sunIcon.style.display = 'none';
+                            moonIcon.style.display = 'block';
+                        }
+                    }
+                } catch (error) {
+                    console.error('Failed to update theme icon:', error);
+                }
+            }
+
+            bindEvents() {
+                const themeToggle = document.getElementById('theme-toggle');
+                if (themeToggle) {
+                    themeToggle.addEventListener('click', () => {
+                        this.toggleTheme();
+                    });
+                    
+                    // Keyboard support
+                    themeToggle.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            this.toggleTheme();
+                        }
+                    });
+                }
+            }
+        }
+
+        // Language management with error handling
+        class LanguageManager {
+            constructor() {
+                try {
+                    this.currentLang = this.getStoredLanguage() || 'zh';
+                    this.init();
+                } catch (error) {
+                    console.error('Language initialization failed:', error);
+                    this.currentLang = 'zh';
+                    this.init();
+                }
+            }
+
+            getStoredLanguage() {
+                try {
+                    return localStorage.getItem('language');
+                } catch (error) {
+                    console.warn('localStorage not available:', error);
+                    return null;
+                }
+            }
+
+            init() {
+                this.applyLanguage(this.currentLang);
+                this.bindEvents();
+            }
+
+            applyLanguage(lang) {
+                try {
+                    const elements = document.querySelectorAll('[data-en][data-zh][data-ja], [data-en][data-zh], [data-en][data-ja], [data-zh][data-ja]');
+                    elements.forEach(el => {
+                        const text = el.getAttribute(`data-${lang}`);
+                        if (text) {
+                            if (el.innerHTML.includes('<br>')) {
+                                el.innerHTML = text;
+                            } else {
+                                el.textContent = text;
+                            }
+                        }
+                    });
+
+                    // Update active state
+                    document.querySelectorAll('.lang-item').forEach(item => {
+                        item.classList.toggle('active', item.getAttribute('data-lang') === lang);
+                    });
+
+                    this.currentLang = lang;
+                    
+                    // Store preference
+                    try {
+                        localStorage.setItem('language', lang);
+                    } catch (error) {
+                        console.warn('Cannot save language preference:', error);
+                    }
+                    
+                    // Update document language
+                    const langMap = { 'zh': 'zh-CN', 'en': 'en', 'ja': 'ja-JP' };
+                    document.documentElement.setAttribute('lang', langMap[lang] || 'zh-CN');
+                    
+                    // Update page title and meta description
+                    this.updatePageMeta(lang);
+                    
+                } catch (error) {
+                    console.error('Failed to apply language:', error);
+                    showError('语言切换失败');
+                }
+            }
+
+            updatePageMeta(lang) {
+                const metaContent = {
+                    'zh': {
+                        title: 'OmniAI - 便捷且高效地访问所有AI模型',
+                        description: 'OmniAI提供企业级API服务，一站式访问所有主流AI模型，包括OpenAI、Claude、Gemini等。稳定快速，价格实惠。'
+                    },
+                    'en': {
+                        title: 'OmniAI - Convenient and Efficient Access to All AI Models',
+                        description: 'OmniAI provides enterprise-level API services with one-stop access to all mainstream AI models including OpenAI, Claude, Gemini, etc. Stable, fast, and affordable.'
+                    },
+                    'ja': {
+                        title: 'OmniAI - 便利で効率的な全てのAIモデルへのアクセス',
+                        description: 'OmniAIはエンタープライズレベルのAPIサービスを提供し、OpenAI、Claude、Gemini等を含む全ての主要AIモデルへのワンストップアクセスを実現。安定・高速・手頃な価格。'
+                    }
+                };
+
+                const content = metaContent[lang] || metaContent['zh'];
+                
+                try {
+                    document.title = content.title;
+                    const descMeta = document.querySelector('meta[name="description"]');
+                    if (descMeta) {
+                        descMeta.setAttribute('content', content.description);
+                    }
+                } catch (error) {
+                    console.warn('Failed to update page meta:', error);
+                }
+            }
+
+            toggleMenu() {
+                const menu = document.getElementById('lang-menu');
+                const toggle = document.getElementById('lang-toggle');
+                
+                if (menu) {
+                    const isOpen = menu.classList.contains('show');
+                    menu.classList.toggle('show');
+                    
+                    if (toggle) {
+                        toggle.setAttribute('aria-expanded', !isOpen);
+                    }
+                }
+            }
+
+            bindEvents() {
+                const toggle = document.getElementById('lang-toggle');
+                const menu = document.getElementById('lang-menu');
+
+                if (toggle) {
+                    toggle.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        this.toggleMenu();
+                    });
+
+                    // Keyboard support
+                    toggle.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            this.toggleMenu();
+                        }
+                    });
+                }
+
+                if (menu) {
+                    // Language selection
+                    menu.querySelectorAll('.lang-item').forEach(item => {
+                        item.addEventListener('click', () => {
+                            const lang = item.getAttribute('data-lang');
+                            this.applyLanguage(lang);
+                            this.toggleMenu();
+                        });
+
+                        // Keyboard support
+                        item.addEventListener('keydown', (e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                const lang = item.getAttribute('data-lang');
+                                this.applyLanguage(lang);
+                                this.toggleMenu();
+                            }
+                        });
+                    });
+                }
+
+                // Close menu on outside click
+                document.addEventListener('click', () => {
+                    if (menu) {
+                        menu.classList.remove('show');
+                        if (toggle) {
+                            toggle.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+
+                // Close menu on escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && menu && menu.classList.contains('show')) {
+                        menu.classList.remove('show');
+                        if (toggle) {
+                            toggle.setAttribute('aria-expanded', 'false');
+                            toggle.focus();
+                        }
+                    }
+                });
+            }
+        }
+
+        // Mobile Menu Management
+        class MobileMenuManager {
+            constructor() {
+                this.mobileMenu = document.getElementById('mobile-menu');
+                this.mobileOverlay = document.getElementById('mobile-menu-overlay');
+                this.mobileToggle = document.querySelector('.mobile-menu-toggle');
+                this.mobileClose = document.getElementById('mobile-menu-close');
+                this.isOpen = false;
+                this.init();
+            }
+
+            init() {
+                this.bindEvents();
+                this.setupMobileControls();
+            }
+
+            bindEvents() {
+                // Mobile menu toggle
+                if (this.mobileToggle) {
+                    this.mobileToggle.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.toggleMenu();
+                    });
+                }
+
+                // Mobile menu close
+                if (this.mobileClose) {
+                    this.mobileClose.addEventListener('click', () => {
+                        this.closeMenu();
+                    });
+                }
+
+                // Overlay click to close
+                if (this.mobileOverlay) {
+                    this.mobileOverlay.addEventListener('click', () => {
+                        this.closeMenu();
+                    });
+                }
+
+                // Close on escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && this.isOpen) {
+                        this.closeMenu();
+                    }
+                });
+
+                // Close menu when clicking nav links
+                const mobileLinks = document.querySelectorAll('.mobile-menu-link');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        this.closeMenu();
+                    });
+                });
+            }
+
+            setupMobileControls() {
+                // Setup mobile theme toggle
+                const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+                if (mobileThemeToggle && window.themeManager) {
+                    mobileThemeToggle.addEventListener('click', () => {
+                        window.themeManager.toggleTheme();
+                    });
+                }
+
+                // Setup mobile language toggle
+                const mobileLangToggle = document.getElementById('mobile-lang-toggle');
+                const mobileLangMenu = document.getElementById('mobile-lang-menu');
+                
+                if (mobileLangToggle && mobileLangMenu) {
+                    mobileLangToggle.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        mobileLangMenu.classList.toggle('show');
+                        const isOpen = mobileLangMenu.classList.contains('show');
+                        mobileLangToggle.setAttribute('aria-expanded', isOpen);
+                    });
+
+                    // Language selection
+                    mobileLangMenu.querySelectorAll('.lang-item').forEach(item => {
+                        item.addEventListener('click', () => {
+                            const lang = item.getAttribute('data-lang');
+                            if (window.languageManager) {
+                                window.languageManager.applyLanguage(lang);
+                            }
+                            mobileLangMenu.classList.remove('show');
+                            mobileLangToggle.setAttribute('aria-expanded', 'false');
+                        });
+                    });
+                }
+            }
+
+            toggleMenu() {
+                if (this.isOpen) {
+                    this.closeMenu();
+                } else {
+                    this.openMenu();
+                }
+            }
+
+            openMenu() {
+                if (!this.mobileMenu || !this.mobileOverlay) return;
+                
+                this.isOpen = true;
+                this.mobileMenu.classList.add('show');
+                this.mobileOverlay.classList.add('show');
+                
+                if (this.mobileToggle) {
+                    this.mobileToggle.classList.add('active');
+                    this.mobileToggle.setAttribute('aria-expanded', 'true');
+                }
+                
+                // Prevent body scroll
+                document.body.style.overflow = 'hidden';
+                
+                // Focus management
+                if (this.mobileClose) {
+                    this.mobileClose.focus();
+                }
+            }
+
+            closeMenu() {
+                if (!this.mobileMenu || !this.mobileOverlay) return;
+                
+                this.isOpen = false;
+                this.mobileMenu.classList.remove('show');
+                this.mobileOverlay.classList.remove('show');
+                
+                if (this.mobileToggle) {
+                    this.mobileToggle.classList.remove('active');
+                    this.mobileToggle.setAttribute('aria-expanded', 'false');
+                }
+                
+                // Restore body scroll
+                document.body.style.overflow = '';
+                
+                // Return focus to toggle button
+                if (this.mobileToggle) {
+                    this.mobileToggle.focus();
+                }
+            }
+        }
+
+        // Other features
+        function initOtherFeatures() {
+            // Initialize mobile menu
+            window.mobileMenuManager = new MobileMenuManager();
+
+            // Scroll-based navigation background
+            let ticking = false;
+            function updateNavBackground() {
+                const nav = document.querySelector('.nav-container');
+                const isScrolled = window.scrollY > 50;
+                const theme = document.documentElement.getAttribute('data-theme');
+                
+                if (nav) {
+                    if (isScrolled) {
+                        nav.style.background = theme === 'dark' 
+                            ? 'rgba(15, 23, 42, 0.95)' 
+                            : 'rgba(255, 255, 255, 0.95)';
+                    } else {
+                        nav.style.background = theme === 'dark' 
+                            ? 'rgba(15, 23, 42, 0.85)' 
+                            : 'rgba(255, 255, 255, 0.85)';
+                    }
+                }
+                ticking = false;
+            }
+
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    requestAnimationFrame(updateNavBackground);
+                    ticking = true;
+                }
+            });
+
+            // Intersection Observer for logo animations
+            if ('IntersectionObserver' in window) {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.animationPlayState = 'running';
+                        }
+                    });
+                }, observerOptions);
+
+                document.querySelectorAll('.fade-in').forEach(el => {
+                    observer.observe(el);
+                });
+            }
+        }
+
+        // Initialize docs links to navigate to correct language version
+        function initDocsLinks() {
+            const docsLinks = document.querySelectorAll('.docs-link');
+            
+            docsLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get current language from languageManager
+                    const currentLang = window.languageManager ? window.languageManager.currentLang : 'zh';
+                    
+                    // Map languages to their doc paths
+                    const langPaths = {
+                        'zh': '/zh/',
+                        'en': '/en/', 
+                        'ja': '/ja/'
+                    };
+                    
+                    // Navigate to docs introduction page in current language
+                    const docsPath = langPaths[currentLang] || '/zh/';
+                    window.location.href = docsPath + 'introduction/';
+                });
+            });
+        }
+
+        // Initialize everything when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                // Initialize compatibility checks first
+                initCompatibilityChecks();
+                
+                // Initialize core managers
+                window.themeManager = new ThemeManager();
+                window.languageManager = new LanguageManager();
+                
+                // Initialize other features
+                initOtherFeatures();
+                
+                // Initialize docs links
+                initDocsLinks();
+                
+                // Add global click handler to close dropdowns
+                document.addEventListener('click', function(e) {
+                    // Close language dropdowns if clicked outside
+                    const langMenu = document.getElementById('lang-menu');
+                    const langToggle = document.getElementById('lang-toggle');
+                    const mobileLangMenu = document.getElementById('mobile-lang-menu');
+                    const mobileLangToggle = document.getElementById('mobile-lang-toggle');
+                    
+                    if (langMenu && !langToggle?.contains(e.target) && !langMenu.contains(e.target)) {
+                        langMenu.classList.remove('show');
+                        if (langToggle) langToggle.setAttribute('aria-expanded', 'false');
+                    }
+                    
+                    if (mobileLangMenu && !mobileLangToggle?.contains(e.target) && !mobileLangMenu.contains(e.target)) {
+                        mobileLangMenu.classList.remove('show');
+                        if (mobileLangToggle) mobileLangToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+                
+                console.log('OmniAI page initialized successfully');
+                
+            } catch (error) {
+                console.error('Initialization failed:', error);
+                showError('页面初始化失败，请刷新重试', 'error', 10000);
+            }
+        });
+
+        // Enhanced global error handlers
+        window.addEventListener('error', function(e) {
+            console.error('Unhandled error:', e.error);
+            showError('页面运行出错，部分功能可能不可用', 'error', 8000);
+        });
+
+        // Handle unhandled promise rejections
+        window.addEventListener('unhandledrejection', function(e) {
+            console.error('Unhandled promise rejection:', e.reason);
+            showError('部分功能加载失败', 'warning', 6000);
+            // Prevent the default handling
+            e.preventDefault();
+        });
+
+        // Performance optimization: handle visibility change
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                // Page is hidden, could pause non-essential operations
+                console.log('Page hidden');
+            } else {
+                // Page is visible
+                console.log('Page visible');
+            }
+        });
+    </script>
 </body>
 </html>

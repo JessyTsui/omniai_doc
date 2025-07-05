@@ -1,27 +1,50 @@
-# FROM node:20.16.0 as build-stage
-FROM node:20.16.0
+# Build stage
+FROM node:20.16.0-alpine as build-stage
 
-WORKDIR /omniai-doc
+WORKDIR /app
 
+# Copy package files
 COPY package*.json ./
 
-RUN npm install -g npm@10.8.1
+# Install dependencies
+RUN npm ci --only=production
 
-RUN npm install
-
+# Copy source files
 COPY . .
 
+# Build the application
 RUN npm run build
 
+# Production stage
+FROM nginx:stable-alpine as production-stage
 
-# FROM nginx:stable-alpine as production-stage
+# Install curl for health checks
+RUN apk add --no-cache curl
 
-# COPY ./docker/nginx.conf /etc/nginx/nginx.conf
+# Copy nginx configuration
+COPY ./docker/nginx.conf /etc/nginx/nginx.conf
 
-# RUN rm -rf /usr/share/nginx/html/*
+# Remove default nginx static assets
+RUN rm -rf /usr/share/nginx/html/*
 
-# COPY --from=build-stage /omniai-doc/dist /usr/share/nginx/html
+# Copy built application from build stage
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+
+# Note: nginx user already exists in nginx:stable-alpine image
+
+# Set permissions for nginx user
+RUN chown -R nginx:nginx /usr/share/nginx/html && \
+    chown -R nginx:nginx /var/cache/nginx && \
+    chown -R nginx:nginx /var/log/nginx && \
+    mkdir -p /tmp && \
+    chown nginx:nginx /tmp
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8080/ || exit 1
+
+USER nginx
 
 EXPOSE 8080
 
-CMD ["npm", "run", "docker"]
+CMD ["nginx", "-g", "daemon off;"]

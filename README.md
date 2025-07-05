@@ -1,54 +1,98 @@
-# Starlight Starter Kit: Basics
+# OmniAI Documentation
 
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
 
+OmniAI 文档站点，基于 Astro Starlight 构建，提供统一的 API 接口文档，支持多种 AI 模型的无缝调用。
+
+## 🚀 快速开始
+
+### 开发环境
+
+```bash
+# 安装依赖
+npm install
+
+# 启动开发服务器
+npm run dev
 ```
-npm create astro@latest -- --template starlight
+
+访问 `http://localhost:4321` 查看文档站点。
+
+### Docker 部署
+
+```bash
+# 构建 Docker 镜像
+./build.sh
+
+# 运行容器
+./dev.sh
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/starlight/tree/main/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/starlight/tree/main/examples/basics)
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/withastro/starlight&create_from_path=examples/basics)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fwithastro%2Fstarlight%2Ftree%2Fmain%2Fexamples%2Fbasics&project-name=my-starlight-docs&repository-name=my-starlight-docs)
+或使用 Docker Compose：
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+```bash
+docker-compose up -d
+```
 
-## 🚀 Project Structure
-
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+## 📁 项目结构
 
 ```
-.
-├── public/
+omniai_doc/
+├── docker/              # Docker 配置文件
+│   ├── Dockerfile      # 多阶段构建配置
+│   └── nginx.conf      # Nginx 配置（包含安全头和缓存）
+├── public/             # 静态资源
+│   └── omniai/brands/  # 品牌 Logo
 ├── src/
-│   ├── assets/
-│   ├── content/
-│   │   ├── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+│   ├── content/docs/   # 文档内容
+│   └── pages/          # 页面文件
+├── astro.config.mjs    # Astro 配置
+├── docker-compose.yaml # Docker Compose 配置
+└── package.json        # 项目依赖
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+## 🧞 可用命令
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+| 命令                | 说明                            |
+| :----------------- | :------------------------------ |
+| `npm install`      | 安装项目依赖                      |
+| `npm run dev`      | 启动开发服务器 `localhost:4321`   |
+| `npm run build`    | 构建生产版本到 `./dist/`          |
+| `npm run preview`  | 预览构建结果                      |
+| `npm run lint`     | 运行 ESLint 检查                 |
+| `npm run format`   | 使用 Prettier 格式化代码          |
 
-Static assets, like favicons, can be placed in the `public/` directory.
+## 🔧 配置说明
 
-## 🧞 Commands
+### 环境变量
 
-All commands are run from the root of the project, from a terminal:
+复制 `.env.example` 为 `.env` 并根据需要修改：
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+```bash
+cp .env.example .env
+```
 
-## 👀 Want to learn more?
+### Docker 配置
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+- 使用多阶段构建减少镜像大小
+- Nginx 配置包含安全头、Gzip 压缩和缓存策略
+- 支持健康检查和资源限制
+
+## 🛡️ 安全特性
+
+- 严格的 TypeScript 配置
+- 安全的 HTTP 响应头
+- 速率限制保护
+- 非 root 用户运行容器
+
+## 📝 文档编写
+
+文档文件位于 `src/content/docs/` 目录，支持 Markdown 和 MDX 格式。
+
+## 🤝 贡献
+
+欢迎提交 Issue 和 Pull Request！
+
+## 📄 许可证
+
+本项目基于 MIT 许可证开源。
