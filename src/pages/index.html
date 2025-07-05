@@ -16,49 +16,69 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-50: #f0f9ff;
-            --primary-100: #e0f2fe;
-            --primary-200: #bae6fd;
-            --primary-300: #7dd3fc;
-            --primary-400: #38bdf8;
-            --primary-500: #0ea5e9;
-            --primary-600: #0284c7;
-            --primary-700: #0369a1;
-            --primary-800: #075985;
-            --primary-900: #0c4a6e;
-            --primary-950: #082f49;
+            /* Light theme colors */
+            --bg-primary: #ffffff;
+            --bg-secondary: linear-gradient(45deg, #f0f9ff 0%, #f0fdf4 50%, #fdf4ff 100%);
+            --bg-gradient: linear-gradient(135deg, #0ea5e9 0%, #22c55e 50%, #d946ef 100%);
+            --bg-floating: rgba(255, 255, 255, 0.7);
+            --bg-nav: rgba(255, 255, 255, 0.85);
+            --bg-card: rgba(255, 255, 255, 0.8);
+            --bg-button-primary: linear-gradient(135deg, #0ea5e9 0%, #22c55e 50%, #d946ef 100%);
+            --bg-button-secondary: rgba(255, 255, 255, 0.9);
             
-            --secondary-50: #f0fdf4;
-            --secondary-100: #dcfce7;
-            --secondary-200: #bbf7d0;
-            --secondary-300: #86efac;
-            --secondary-400: #4ade80;
-            --secondary-500: #22c55e;
-            --secondary-600: #16a34a;
-            --secondary-700: #15803d;
-            --secondary-800: #166534;
-            --secondary-900: #14532d;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --text-nav: #475569;
             
-            --accent-50: #fdf4ff;
-            --accent-100: #fae8ff;
-            --accent-200: #f5d0fe;
-            --accent-300: #f0abfc;
-            --accent-400: #e879f9;
-            --accent-500: #d946ef;
-            --accent-600: #c026d3;
-            --accent-700: #a21caf;
-            --accent-800: #86198f;
-            --accent-900: #701a75;
-            
-            --gradient-primary: linear-gradient(135deg, var(--primary-500) 0%, var(--secondary-500) 50%, var(--accent-500) 100%);
-            --gradient-secondary: linear-gradient(45deg, var(--primary-100) 0%, var(--secondary-100) 50%, var(--accent-100) 100%);
-            --gradient-dark: linear-gradient(135deg, var(--primary-900) 0%, var(--primary-800) 100%);
+            --border-light: rgba(0, 0, 0, 0.1);
+            --border-lighter: rgba(255, 255, 255, 0.3);
             
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
             --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
             --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            
+            /* Floating shapes colors */
+            --shape-1: #0ea5e9;
+            --shape-2: #22c55e;
+            --shape-3: #d946ef;
+            --shape-4: #7dd3fc;
+            --shape-5: #86efac;
+        }
+
+        [data-theme="dark"] {
+            /* Dark theme colors */
+            --bg-primary: #0f172a;
+            --bg-secondary: linear-gradient(45deg, #1e293b 0%, #164e63 50%, #581c87 100%);
+            --bg-gradient: linear-gradient(135deg, #0ea5e9 0%, #22c55e 50%, #d946ef 100%);
+            --bg-floating: rgba(30, 41, 59, 0.7);
+            --bg-nav: rgba(15, 23, 42, 0.85);
+            --bg-card: rgba(30, 41, 59, 0.8);
+            --bg-button-primary: linear-gradient(135deg, #0ea5e9 0%, #22c55e 50%, #d946ef 100%);
+            --bg-button-secondary: rgba(30, 41, 59, 0.9);
+            
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #64748b;
+            --text-nav: #cbd5e1;
+            
+            --border-light: rgba(255, 255, 255, 0.1);
+            --border-lighter: rgba(255, 255, 255, 0.05);
+            
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3);
+            --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.5);
+            
+            /* Floating shapes colors for dark mode */
+            --shape-1: #38bdf8;
+            --shape-2: #4ade80;
+            --shape-3: #e879f9;
+            --shape-4: #0ea5e9;
+            --shape-5: #22c55e;
         }
 
         * {
@@ -70,10 +90,11 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #1e293b;
+            color: var(--text-primary);
             overflow-x: hidden;
-            background: var(--gradient-secondary);
+            background: var(--bg-secondary);
             min-height: 100vh;
+            transition: all 0.3s ease;
         }
 
         /* 动画定义 */
@@ -99,28 +120,6 @@
             }
         }
 
-        @keyframes slideInLeft {
-            from {
-                transform: translateX(-100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                transform: translateX(100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
         @keyframes scaleIn {
             from {
                 transform: scale(0.8);
@@ -132,6 +131,11 @@
             }
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         /* 背景动画 */
         .animated-bg {
             position: fixed;
@@ -140,7 +144,8 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: var(--gradient-secondary);
+            background: var(--bg-secondary);
+            transition: background 0.3s ease;
         }
 
         .floating-shapes {
@@ -155,12 +160,13 @@
             border-radius: 50%;
             animation: float 6s ease-in-out infinite;
             opacity: 0.1;
+            transition: background 0.3s ease;
         }
 
         .floating-shape:nth-child(1) {
             width: 80px;
             height: 80px;
-            background: var(--primary-500);
+            background: var(--shape-1);
             top: 20%;
             left: 10%;
             animation-delay: 0s;
@@ -169,7 +175,7 @@
         .floating-shape:nth-child(2) {
             width: 120px;
             height: 120px;
-            background: var(--secondary-500);
+            background: var(--shape-2);
             top: 60%;
             right: 20%;
             animation-delay: 2s;
@@ -178,7 +184,7 @@
         .floating-shape:nth-child(3) {
             width: 60px;
             height: 60px;
-            background: var(--accent-500);
+            background: var(--shape-3);
             bottom: 30%;
             left: 70%;
             animation-delay: 4s;
@@ -187,7 +193,7 @@
         .floating-shape:nth-child(4) {
             width: 100px;
             height: 100px;
-            background: var(--primary-300);
+            background: var(--shape-4);
             top: 10%;
             right: 10%;
             animation-delay: 1s;
@@ -196,7 +202,7 @@
         .floating-shape:nth-child(5) {
             width: 70px;
             height: 70px;
-            background: var(--secondary-300);
+            background: var(--shape-5);
             bottom: 20%;
             left: 20%;
             animation-delay: 3s;
@@ -209,11 +215,12 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.85);
+            background: var(--bg-nav);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid var(--border-lighter);
             box-shadow: var(--shadow-lg);
             animation: slideInUp 0.8s ease-out;
+            transition: background 0.3s ease;
         }
 
         .nav-content {
@@ -228,7 +235,7 @@
         .nav-logo {
             font-size: 1.75rem;
             font-weight: 800;
-            background: var(--gradient-primary);
+            background: var(--bg-gradient);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -241,6 +248,12 @@
             filter: brightness(1.1);
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -251,7 +264,7 @@
             position: relative;
             padding: 0.5rem 1rem;
             text-decoration: none;
-            color: #475569;
+            color: var(--text-nav);
             font-weight: 500;
             border-radius: 50px;
             transition: all 0.3s ease;
@@ -265,7 +278,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: var(--gradient-primary);
+            background: var(--bg-gradient);
             transition: left 0.3s ease;
             z-index: -1;
             border-radius: 50px;
@@ -281,6 +294,99 @@
             box-shadow: var(--shadow-lg);
         }
 
+        /* 主题和语言切换按钮 */
+        .control-buttons {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .control-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-light);
+        }
+
+        .control-btn:hover {
+            background: var(--bg-gradient);
+            color: white;
+            transform: scale(1.1);
+            box-shadow: var(--shadow-md);
+        }
+
+        .control-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* 语言下拉菜单 */
+        .lang-dropdown {
+            position: relative;
+        }
+
+        .lang-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 0.5rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border-light);
+            backdrop-filter: blur(20px);
+            min-width: 120px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .lang-menu.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .lang-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .lang-item:first-child {
+            border-radius: 12px 12px 0 0;
+        }
+
+        .lang-item:last-child {
+            border-radius: 0 0 12px 12px;
+        }
+
+        .lang-item:hover {
+            background: var(--bg-gradient);
+            color: white;
+        }
+
+        .lang-item.active {
+            background: var(--bg-gradient);
+            color: white;
+            font-weight: 600;
+        }
+
         /* 移动端菜单 */
         .mobile-menu-toggle {
             display: none;
@@ -290,10 +396,11 @@
             padding: 0.5rem;
             border-radius: 8px;
             transition: all 0.3s ease;
+            color: var(--text-nav);
         }
 
         .mobile-menu-toggle:hover {
-            background: rgba(0, 0, 0, 0.05);
+            background: var(--bg-card);
         }
 
         /* Hero区域 */
@@ -317,16 +424,17 @@
             display: inline-flex;
             align-items: center;
             padding: 0.5rem 1.5rem;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
             border-radius: 50px;
             font-size: 0.875rem;
             font-weight: 500;
-            color: #475569;
+            color: var(--text-secondary);
             margin-bottom: 2rem;
             box-shadow: var(--shadow-md);
             animation: slideInUp 0.8s ease-out 0.2s both;
             backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
         }
 
         .hero-title {
@@ -334,14 +442,15 @@
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            color: #0f172a;
+            color: var(--text-primary);
             animation: slideInUp 0.8s ease-out 0.4s both;
+            transition: color 0.3s ease;
         }
 
         .hero-subtitle {
             font-size: clamp(4rem, 10vw, 6rem);
             font-weight: 900;
-            background: var(--gradient-primary);
+            background: var(--bg-gradient);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -366,13 +475,14 @@
 
         .hero-description {
             font-size: 1.25rem;
-            color: #64748b;
+            color: var(--text-secondary);
             line-height: 1.7;
             margin-bottom: 3rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
             animation: slideInUp 0.8s ease-out 0.8s both;
+            transition: color 0.3s ease;
         }
 
         .hero-description p {
@@ -405,7 +515,7 @@
         }
 
         .btn-primary {
-            background: var(--gradient-primary);
+            background: var(--bg-button-primary);
             color: white;
             box-shadow: var(--shadow-lg);
         }
@@ -417,7 +527,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--primary-600) 0%, var(--secondary-600) 50%, var(--accent-600) 100%);
+            background: linear-gradient(135deg, #0284c7 0%, #16a34a 50%, #c026d3 100%);
             transition: left 0.3s ease;
         }
 
@@ -431,18 +541,18 @@
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.9);
-            color: #475569;
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            background: var(--bg-button-secondary);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-light);
             backdrop-filter: blur(10px);
             box-shadow: var(--shadow-md);
         }
 
         .btn-secondary:hover {
-            background: white;
+            background: var(--bg-card);
             transform: translateY(-3px);
             box-shadow: var(--shadow-xl);
-            color: #1e293b;
+            color: var(--text-primary);
         }
 
         .btn span {
@@ -457,20 +567,22 @@
 
         .partners-title {
             font-size: 1rem;
-            color: #64748b;
+            color: var(--text-secondary);
             margin-bottom: 2rem;
             font-weight: 500;
+            transition: color 0.3s ease;
         }
 
         .logos-container {
-            background: rgba(255, 255, 255, 0.7);
+            background: var(--bg-floating);
             backdrop-filter: blur(20px);
             border-radius: 24px;
             padding: 3rem 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid var(--border-lighter);
             box-shadow: var(--shadow-xl);
             max-width: 900px;
             margin: 0 auto;
+            transition: all 0.3s ease;
         }
 
         .logos-grid {
@@ -486,14 +598,14 @@
             align-items: center;
             justify-content: center;
             padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.8);
+            background: var(--bg-card);
             border-radius: 16px;
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
             min-height: 100px;
             width: 100%;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-light);
         }
 
         .logo-item::before {
@@ -503,7 +615,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: var(--gradient-primary);
+            background: var(--bg-gradient);
             opacity: 0.05;
             transition: left 0.4s ease;
         }
@@ -515,7 +627,7 @@
         .logo-item:hover {
             transform: translateY(-8px) scale(1.05);
             box-shadow: var(--shadow-2xl);
-            background: white;
+            background: var(--bg-primary);
         }
 
         .logo-item img {
@@ -531,6 +643,19 @@
             transform: scale(1.1);
             filter: brightness(1.1);
         }
+
+        /* 加载动画 */
+        .fade-in {
+            opacity: 0;
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+
+        .fade-in:nth-child(1) { animation-delay: 0.1s; }
+        .fade-in:nth-child(2) { animation-delay: 0.2s; }
+        .fade-in:nth-child(3) { animation-delay: 0.3s; }
+        .fade-in:nth-child(4) { animation-delay: 0.4s; }
+        .fade-in:nth-child(5) { animation-delay: 0.5s; }
+        .fade-in:nth-child(6) { animation-delay: 0.6s; }
 
         /* 响应式设计 */
         @media (max-width: 768px) {
@@ -571,6 +696,15 @@
             .nav-content {
                 padding: 1rem;
             }
+
+            .control-buttons {
+                gap: 0.25rem;
+            }
+
+            .control-btn {
+                width: 36px;
+                height: 36px;
+            }
         }
 
         @media (max-width: 640px) {
@@ -583,21 +717,13 @@
             }
         }
 
-        /* 加载动画 */
-        .fade-in {
-            opacity: 0;
-            animation: slideInUp 0.6s ease-out forwards;
+        /* 主题切换动画 */
+        .theme-transition {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
-
-        .fade-in:nth-child(1) { animation-delay: 0.1s; }
-        .fade-in:nth-child(2) { animation-delay: 0.2s; }
-        .fade-in:nth-child(3) { animation-delay: 0.3s; }
-        .fade-in:nth-child(4) { animation-delay: 0.4s; }
-        .fade-in:nth-child(5) { animation-delay: 0.5s; }
-        .fade-in:nth-child(6) { animation-delay: 0.6s; }
     </style>
 </head>
-<body>
+<body class="theme-transition">
     <!-- 动态背景 -->
     <div class="animated-bg">
         <div class="floating-shapes">
@@ -610,19 +736,43 @@
     </div>
 
     <!-- 导航栏 -->
-    <nav class="nav-container">
+    <nav class="nav-container theme-transition">
         <div class="nav-content">
             <a href="/" class="nav-logo">OmniAI</a>
-            <div class="nav-links">
-                <a href="/introduction/" class="nav-link">文档</a>
-                <a href="https://api.pandalla.ai/pricing" class="nav-link">模型价格</a>
-                <a href="https://api.pandalla.ai/topup" class="nav-link">余额</a>
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="/introduction/" class="nav-link" data-en="Docs" data-zh="文档">文档</a>
+                    <a href="https://api.pandalla.ai/pricing" class="nav-link" data-en="Pricing" data-zh="模型价格">模型价格</a>
+                    <a href="https://api.pandalla.ai/topup" class="nav-link" data-en="Balance" data-zh="余额">余额</a>
+                </div>
+                <div class="control-buttons">
+                    <button id="theme-toggle" class="control-btn" title="切换主题">
+                        <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <path d="m12 1 0 2m0 18 0 2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M1 12l2 0m18 0 2 0M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                        </svg>
+                        <svg class="moon-icon" style="display: none;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                    <div class="lang-dropdown">
+                        <button id="lang-toggle" class="control-btn" title="切换语言">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+                            </svg>
+                        </button>
+                        <div id="lang-menu" class="lang-menu">
+                            <div class="lang-item active" data-lang="zh">🇨🇳 中文</div>
+                            <div class="lang-item" data-lang="en">🇺🇸 English</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="打开菜单">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12h18M3 6h18M3 18h18"></path>
+                    </svg>
+                </button>
             </div>
-            <button class="mobile-menu-toggle" aria-label="打开菜单">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M3 12h18M3 6h18M3 18h18"></path>
-                </svg>
-            </button>
         </div>
     </nav>
 
@@ -630,56 +780,58 @@
     <main class="hero-section">
         <div class="hero-content">
             <!-- 顶部徽章 -->
-            <div class="hero-badge">
-                🚀 全新升级 · 更快更稳定的AI接口服务
+            <div class="hero-badge theme-transition">
+                <span data-en="🚀 New Upgrade · Faster and More Reliable AI Interface Service" data-zh="🚀 全新升级 · 更快更稳定的AI接口服务">🚀 全新升级 · 更快更稳定的AI接口服务</span>
             </div>
 
             <!-- 主标题 -->
-            <h1 class="hero-title">
-                便捷且高效地<br>访问所有AI模型
+            <h1 class="hero-title theme-transition">
+                <span data-en="Convenient and Efficient<br>Access to All AI Models" data-zh="便捷且高效地<br>访问所有AI模型">便捷且高效地<br>访问所有AI模型</span>
             </h1>
 
             <!-- 品牌名称 -->
             <div class="hero-subtitle">OmniAI</div>
 
             <!-- 描述文字 -->
-            <div class="hero-description">
-                <p>以更实惠的价格提供企业级API服务，所有主流AI模型一站式访问</p>
-                <p>完全兼容各平台接口，零开发基础即可轻松接入</p>
-                <p>不用担心网络问题，稳定快速，高效整合资源，助您轻松实现AI应用</p>
+            <div class="hero-description theme-transition">
+                <p data-en="Provide enterprise-level API services at more affordable prices, one-stop access to all mainstream AI models" data-zh="以更实惠的价格提供企业级API服务，所有主流AI模型一站式访问">以更实惠的价格提供企业级API服务，所有主流AI模型一站式访问</p>
+                <p data-en="Fully compatible with various platform interfaces, easy access with zero development foundation" data-zh="完全兼容各平台接口，零开发基础即可轻松接入">完全兼容各平台接口，零开发基础即可轻松接入</p>
+                <p data-en="No need to worry about network issues, stable and fast, efficient resource integration to help you easily realize AI applications" data-zh="不用担心网络问题，稳定快速，高效整合资源，助您轻松实现AI应用">不用担心网络问题，稳定快速，高效整合资源，助您轻松实现AI应用</p>
             </div>
 
             <!-- 操作按钮 -->
             <div class="hero-buttons">
-                <a href="https://api.pandalla.ai/token" class="btn btn-primary">
-                    <span>立即开始</span>
+                <a href="https://api.pandalla.ai/token" class="btn btn-primary theme-transition">
+                    <span data-en="Get Started" data-zh="立即开始">立即开始</span>
                 </a>
-                <a href="/introduction/" class="btn btn-secondary">
-                    <span>查看文档</span>
+                <a href="/introduction/" class="btn btn-secondary theme-transition">
+                    <span data-en="View Docs" data-zh="查看文档">查看文档</span>
                 </a>
             </div>
 
             <!-- 合作伙伴Logo -->
             <div class="partners-section">
-                <p class="partners-title">支持以下平台商（更多供应商整合中）</p>
-                <div class="logos-container">
+                <p class="partners-title theme-transition">
+                    <span data-en="Supported Platforms (More providers being integrated)" data-zh="支持以下平台商（更多供应商整合中）">支持以下平台商（更多供应商整合中）</span>
+                </p>
+                <div class="logos-container theme-transition">
                     <div class="logos-grid">
-                        <div class="logo-item fade-in">
+                        <div class="logo-item fade-in theme-transition">
                             <img src="/omniai/brands/openai_logo.svg" alt="OpenAI - GPT系列模型提供商" loading="lazy">
                         </div>
-                        <div class="logo-item fade-in">
+                        <div class="logo-item fade-in theme-transition">
                             <img src="/omniai/brands/claude_logo.svg" alt="Claude - Anthropic AI助手" loading="lazy">
                         </div>
-                        <div class="logo-item fade-in">
+                        <div class="logo-item fade-in theme-transition">
                             <img src="/omniai/brands/qwen_logo.svg" alt="通义千问 - 阿里云AI模型" loading="lazy">
                         </div>
-                        <div class="logo-item fade-in">
+                        <div class="logo-item fade-in theme-transition">
                             <img src="/omniai/brands/mistral_logo.svg" alt="Mistral - 开源AI模型" loading="lazy">
                         </div>
-                        <div class="logo-item fade-in">
+                        <div class="logo-item fade-in theme-transition">
                             <img src="/omniai/brands/stability_logo.svg" alt="Stability AI - 图像生成模型" loading="lazy">
                         </div>
-                        <div class="logo-item fade-in">
+                        <div class="logo-item fade-in theme-transition">
                             <img src="/omniai/brands/suno_logo.svg" alt="Suno - AI音乐生成" loading="lazy">
                         </div>
                     </div>
@@ -689,38 +841,168 @@
     </main>
 
     <script>
-        // 简单的移动端菜单交互（可选）
-        document.querySelector('.mobile-menu-toggle')?.addEventListener('click', function() {
-            // 这里可以添加移动端菜单展开逻辑
-            console.log('Mobile menu toggled');
-        });
-
-        // 滚动时导航栏效果
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('.nav-container');
-            if (window.scrollY > 50) {
-                nav.style.background = 'rgba(255, 255, 255, 0.95)';
-            } else {
-                nav.style.background = 'rgba(255, 255, 255, 0.85)';
+        // 主题管理
+        class ThemeManager {
+            constructor() {
+                this.currentTheme = localStorage.getItem('theme') || this.getAutoTheme();
+                this.init();
             }
-        });
 
-        // Logo动画触发器
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+            getAutoTheme() {
+                const hour = new Date().getHours();
+                return (hour >= 6 && hour < 18) ? 'light' : 'dark';
+            }
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
+            init() {
+                this.applyTheme(this.currentTheme);
+                this.bindEvents();
+                this.updateThemeIcon();
+            }
+
+            applyTheme(theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+                this.currentTheme = theme;
+                localStorage.setItem('theme', theme);
+            }
+
+            toggleTheme() {
+                const newTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+                this.applyTheme(newTheme);
+                this.updateThemeIcon();
+            }
+
+            updateThemeIcon() {
+                const sunIcon = document.querySelector('.sun-icon');
+                const moonIcon = document.querySelector('.moon-icon');
+                
+                if (this.currentTheme === 'light') {
+                    sunIcon.style.display = 'block';
+                    moonIcon.style.display = 'none';
+                } else {
+                    sunIcon.style.display = 'none';
+                    moonIcon.style.display = 'block';
+                }
+            }
+
+            bindEvents() {
+                document.getElementById('theme-toggle').addEventListener('click', () => {
+                    this.toggleTheme();
+                });
+            }
+        }
+
+        // 语言管理
+        class LanguageManager {
+            constructor() {
+                this.currentLang = localStorage.getItem('language') || 'zh';
+                this.init();
+            }
+
+            init() {
+                this.applyLanguage(this.currentLang);
+                this.bindEvents();
+            }
+
+            applyLanguage(lang) {
+                const elements = document.querySelectorAll('[data-en][data-zh]');
+                elements.forEach(el => {
+                    const text = el.getAttribute(`data-${lang}`);
+                    if (text) {
+                        if (el.innerHTML.includes('<br>')) {
+                            el.innerHTML = text;
+                        } else {
+                            el.textContent = text;
+                        }
+                    }
+                });
+
+                // 更新活跃状态
+                document.querySelectorAll('.lang-item').forEach(item => {
+                    item.classList.toggle('active', item.getAttribute('data-lang') === lang);
+                });
+
+                this.currentLang = lang;
+                localStorage.setItem('language', lang);
+                document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-CN' : 'en');
+            }
+
+            toggleMenu() {
+                const menu = document.getElementById('lang-menu');
+                menu.classList.toggle('show');
+            }
+
+            bindEvents() {
+                const toggle = document.getElementById('lang-toggle');
+                const menu = document.getElementById('lang-menu');
+
+                toggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.toggleMenu();
+                });
+
+                document.querySelectorAll('.lang-item').forEach(item => {
+                    item.addEventListener('click', () => {
+                        const lang = item.getAttribute('data-lang');
+                        this.applyLanguage(lang);
+                        this.toggleMenu();
+                    });
+                });
+
+                // 点击外部关闭菜单
+                document.addEventListener('click', () => {
+                    menu.classList.remove('show');
+                });
+            }
+        }
+
+        // 其他功能
+        function initOtherFeatures() {
+            // 移动端菜单
+            document.querySelector('.mobile-menu-toggle')?.addEventListener('click', function() {
+                console.log('Mobile menu toggled');
+            });
+
+            // 滚动时导航栏效果
+            window.addEventListener('scroll', function() {
+                const nav = document.querySelector('.nav-container');
+                const isScrolled = window.scrollY > 50;
+                const theme = document.documentElement.getAttribute('data-theme');
+                
+                if (isScrolled) {
+                    nav.style.background = theme === 'dark' 
+                        ? 'rgba(15, 23, 42, 0.95)' 
+                        : 'rgba(255, 255, 255, 0.95)';
+                } else {
+                    nav.style.background = theme === 'dark' 
+                        ? 'rgba(15, 23, 42, 0.85)' 
+                        : 'rgba(255, 255, 255, 0.85)';
                 }
             });
-        }, observerOptions);
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
+            // Logo动画触发器
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // 初始化所有功能
+        document.addEventListener('DOMContentLoaded', function() {
+            new ThemeManager();
+            new LanguageManager();
+            initOtherFeatures();
         });
     </script>
 </body>

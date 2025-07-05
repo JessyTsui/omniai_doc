@@ -1,207 +1,441 @@
 ---
-title: OmniAI 多模型接口调用指南
-description: A guide
+title: API接口使用指南
+description: OmniAI API详细使用说明，包含所有模型的调用方法和高级功能配置
 ---
 
-## 调用说明
+## 接口说明
 
-[本站点](https://api.pandalla.ai/)提供统一的API接口，支持多种AI模型的无缝调用，包括OpenAI、Claude、Gemini、Midjourney等。本文档将详细介绍各模型的调用方法和示例。
+OmniAI提供统一的API接口标准，**完全兼容OpenAI API格式**，支持无缝切换。通过一个接口地址即可访问包括OpenAI、Claude、Gemini、Midjourney等在内的所有主流AI模型。
 
-## 基本配置
+### 🌐 基础配置
 
-### 接口地址
+#### API地址
+将原始OpenAI API地址替换为OmniAI地址：
+```
+原地址: https://api.openai.com
+新地址: https://api.pandalla.ai
+```
 
-将原始API地址从 `https://api.openai.com` 替换为 `https://api.pandalla.ai`
+#### 身份认证
+在 [令牌管理页面](https://api.pandalla.ai/token) 生成您的专属API密钥
 
-### 身份认证
+> 💡 **重要提示**: 生成令牌时请注意选择分组，不同分组对应不同的服务渠道和计费标准
 
-使用在令牌页面`https://api.pandalla.ai/token` 生成的密钥进行API调用
+![Token管理界面](/token_index.jpg)
 
-**请注意：生成令牌的时候需注意分组，代表了不同的渠道消耗**
+---
 
-![Token Index](/token_index.jpg)
+## 快速开始
 
-2. 参照`OpenAI`[官方文档](https://platform.openai.com/docs/api-reference/introduction)进行模型配置
+### 📋 前置要求
+参考官方OpenAI文档进行开发环境配置：
+- [Python SDK](https://github.com/openai/openai-python) 
+- [Node.js SDK](https://github.com/openai/openai-node)
 
-- [Python SDK](https://github.com/openai/openai-python)
-- [Node SDK](https://github.com/openai/openai-node)
+### 🐍 Python SDK
 
-#### Python 示例
-
-```python
+#### 安装依赖
+```bash
 pip install openai
 ```
 
+#### 基础调用示例
 ```python
-from openai import OpenAI 
+from openai import OpenAI
 
+# 初始化客户端
 client = OpenAI(
-	base_url="https://api.pandalla.ai/v1",
-	api_key="sk-替换为你的key"
+    base_url="https://api.pandalla.ai/v1",
+    api_key="sk-your-omniai-api-key"  # 替换为您的密钥
 )
 
-completion = client.chat.completions.create(
-	model="gpt-4o-mini", 
-	max_tokens=16384,
-	messages=[
-		{"role": "user", "content": "hi~"} 
-	] 
+# 发起聊天请求
+response = client.chat.completions.create(
+    model="gpt-4o-mini",
+    max_tokens=16384,
+    messages=[
+        {"role": "user", "content": "你好，介绍一下OmniAI平台"}
+    ]
 )
 
-print(completion)
+print(response.choices[0].message.content)
 ```
 
-#### Curl 示例
+### 🌐 HTTP请求示例
 
-##### 聊天接口
-
-```shell
+#### 标准聊天接口
+```bash
 curl --request POST \
     --url https://api.pandalla.ai/v1/chat/completions \
-    --header 'Authorization: Bearer sk-替换为你的key' \
-    -H "Content-Type: application/json" \
+    --header 'Authorization: Bearer sk-your-omniai-api-key' \
+    --header 'Content-Type: application/json' \
     --data '{
-      "max_tokens": 1024,
-      "model": "gpt-4o-mini",
-      "temperature": 0.8,
-      "top_p": 1,
-      "presence_penalty": 1,
-      "messages": [
-          {
-              "role": "system",
-              "content": "You are ChatGPT, a large language model trained by OpenAI."
-          },
-          {
-              "role": "user",
-              "content": "hi~"
-          }
-      ]
-  }'
+        "model": "gpt-4o-mini",
+        "max_tokens": 1024,
+        "temperature": 0.8,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "messages": [
+            {
+                "role": "system",
+                "content": "你是一个专业的AI助手，擅长回答技术问题。"
+            },
+            {
+                "role": "user", 
+                "content": "请解释一下什么是大语言模型？"
+            }
+        ]
+    }'
 ```
 
-##### 图片理解（vision）
-
-```shell
-curl  https://api.pandalla.ai/v1/chat/completions \
-    -H 'Authorization: Bearer sk-替换为你的key' \
-    -H "Content-Type: application/json" \
-    -d '{
-      "max_tokens": 1024,
-      "model": "gpt-4-vision-preview",
-      "messages": [
-          {
-              "role": "system",
-              "content": "You are an expert Tailwind developer"
-          },
-          {
-              "role": "user",
-              "content": [
-                  {
-                      "type": "text",
-                      "text": "将图片生成网页代码"
-                  },
-                  {
-                      "type": "image_url",
-                      "image_url": {
-                          "url": "data:image/jpeg;base64,xxxx=图片链接或者图片base64"
-                      }
-                  }
-              ]
-          }
-      ]
-  }'
+#### 多模态图像理解
+```bash
+curl https://api.pandalla.ai/v1/chat/completions \
+    --header 'Authorization: Bearer sk-your-omniai-api-key' \
+    --header 'Content-Type: application/json' \
+    --data '{
+        "model": "gpt-4-vision-preview",
+        "max_tokens": 1024,
+        "messages": [
+            {
+                "role": "system",
+                "content": "你是一个专业的前端开发专家，擅长使用Tailwind CSS"
+            },
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "请根据这张图片生成对应的网页代码，使用Tailwind CSS样式"
+                    },
+                    {
+                        "type": "image_url", 
+                        "image_url": {
+                            "url": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/..."
+                        }
+                    }
+                ]
+            }
+        ]
+    }'
 ```
 
-### Anthropic（Claude）
+---
 
-目前支持使用`OpenAI SDK`或者使用`OpenAI API`格式请求调用，您只需要将`model`改成`Claude`的模型名称即可调用`Claude`的模型。
+## 模型支持
 
-### Google（Gemini）
+### 🤖 文本生成模型
 
-目前支持使用`OpenAI SDK`或者使用`OpenAI API`格式请求调用，您只需要将`model`改成`Gemini`的模型名称即可调用`Gemini`的模型。
+#### OpenAI系列
+支持所有OpenAI官方模型，使用相同的调用方式：
+- `gpt-4o`, `gpt-4o-mini` - 最新多模态模型
+- `gpt-4-turbo`, `gpt-4` - 高性能推理模型  
+- `gpt-3.5-turbo` - 经济实用模型
+- `o1-preview`, `o1-mini` - 推理优化模型
 
-## 特殊用法
+#### Anthropic Claude
+完全兼容OpenAI API格式，只需更换模型名称：
+```python
+response = client.chat.completions.create(
+    model="claude-3-5-sonnet-20241022",  # 使用Claude模型
+    messages=[{"role": "user", "content": "你好"}]
+)
+```
 
-由于现在越来越多的模型支持了很多新特性，`OpenAI API`格式已经无法满足需求，有些特殊的调用方法，将在本页面进行说明。
+支持的Claude模型：
+- `claude-3-5-sonnet-20241022` - 最新Sonnet模型
+- `claude-3-5-haiku-20241022` - 快速响应模型
+- `claude-3-opus-20240229` - 最强性能模型
 
-### Gemini
+#### Google Gemini
+同样支持OpenAI API格式调用：
+```python
+response = client.chat.completions.create(
+    model="gemini-1.5-flash-002",  # 使用Gemini模型
+    messages=[{"role": "user", "content": "Hello Gemini"}]
+)
+```
 
-#### 开启**联网搜索**
+---
 
-在请求时，增加 `tools` 参数，并设置 `name` 为 `googleSearch` 即可开启联网搜索。
+## 高级功能
 
-```shell
+### 🔍 Gemini专属功能
+
+#### 联网搜索
+为Gemini模型启用实时搜索功能：
+
+```bash
 curl -X POST https://api.pandalla.ai/v1/chat/completions \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer sk-替换为你的key" \
-  -d '{
-    "model": "gemini-1.5-flash-002",
-    "messages": [{"role": "user", "content": "今天有什么新闻"}],
-    "tools": [
-		{
-			"function": {
-				"name": "googleSearch",
-				"parameters": {}
-			},
-			"type": "function"
-		}
-	]
-  }'
+    --header 'Content-Type: application/json' \
+    --header 'Authorization: Bearer sk-your-omniai-api-key' \
+    --data '{
+        "model": "gemini-1.5-flash-002",
+        "messages": [
+            {"role": "user", "content": "2024年最新的AI技术发展趋势是什么？"}
+        ],
+        "tools": [
+            {
+                "type": "function",
+                "function": {
+                    "name": "googleSearch",
+                    "description": "Search the web for current information",
+                    "parameters": {}
+                }
+            }
+        ]
+    }'
 ```
 
-#### 开启**代码执行**
+#### 代码执行
+启用Gemini的代码执行能力：
 
-在请求时，增加 `tools` 参数，并设置 `name` 为 `codeExecution` 即可开启代码执行。
-
-```shell
+```bash
 curl -X POST https://api.pandalla.ai/v1/chat/completions \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer sk-替换为你的key" \
-  -d '{
-    "model": "gemini-1.5-flash-002",
-    "messages": [{"role": "user", "content": "计算2的7次方"}],
-    "tools": [
-		{
-			"function": {
-				"name": "codeExecution",
-				"parameters": {}
-			},
-			"type": "function"
-		}
-	]
-  }'
+    --header 'Content-Type: application/json' \
+    --header 'Authorization: Bearer sk-your-omniai-api-key' \
+    --data '{
+        "model": "gemini-1.5-flash-002",
+        "messages": [
+            {"role": "user", "content": "请计算斐波那契数列的前20项，并绘制图表"}
+        ],
+        "tools": [
+            {
+                "type": "function",
+                "function": {
+                    "name": "codeExecution",
+                    "description": "Execute Python code",
+                    "parameters": {}
+                }
+            }
+        ]
+    }'
 ```
 
-## 参数设置（特殊说明）
+---
 
-由于现在越来越多的模型属于推理模型，并且不同模型的参数限制存在差异，有些特殊的参数设置，将在本页面进行说明。
+## 推理模型特别说明
 
-### OpenAI
+### 🧠 OpenAI推理模型
+针对 `o1`、`o1-mini`、`o3`、`o3-mini`、`o4-mini` 等推理模型的特殊配置：
 
-1. 支持缓存的模型（gpt-4o-mini等）**默认启用缓存功能**，但只有输入即`prompt_tokens`大于`1024`才会触发。同时由于存在多个账号/组织并发承接请求，请求有概率被分发到不同的账号/组织进行转发，因此缓存有小概率不触发。
-2. 推理模型（o1、o1-mini、o3、o3-mini、o4-mini等）默认开启推理且无法手动关闭，推理过程内容不返回。
-3. 推理模型（o1、o1-mini、o3、o3-mini、o4-mini等）不支持设置`temperature/top_k/top_p`等参数。
-4. 推理模型（o1、o1-mini、o3、o3-mini、o4-mini等）支持通过`reasoning.effort`参数来控制推理强度，可以设置为`low/medium/high`。
-5. 对于推理模型不推荐设置过小的`max_tokens`，如果返回内容中`finish_reason`为`length`并且`content`为空，则表示对于请求的问题推理长度设置过小。
-6. 推理模型（o1、o1-mini、o3、o3-mini、o4-mini等）如果返回`400`，可能是因为提示词不合规或者被识别为蒸馏行为，建议参考[文档](https://platform.openai.com/docs/guides/reasoning#advice-on-prompting)更改提示词。
+#### 默认设置
+- ✅ **自动启用推理**: 默认开启，无法手动关闭
+- ⚠️ **参数限制**: 不支持 `temperature`、`top_k`、`top_p` 等参数
+- 📝 **推理过程**: 内部推理过程不返回给用户
 
-### Anthropic（Claude）
+#### 推理强度控制
+```python
+response = client.chat.completions.create(
+    model="o1-preview",
+    messages=[{"role": "user", "content": "解决这个复杂的数学问题..."}],
+    reasoning={
+        "effort": "high"  # 可选: low, medium, high
+    }
+)
+```
 
-1. 由于模型必须手动传入`max_tokens`，若请求未传入会自动设置为模型的最大值，例如`claude-3.7`的最大值为 `128000`。
-2. 推理模型（claude-3.5，claude-3.7，claude-4等）**默认关闭推理**。
-3. 推理模型（claude-3.5，claude-3.7，claude-4等）需要通过`reasoning`参数对象来开启推理，大部分情况下有推理内容返回，**小概率**被官方加密不返回：
-   - 推理长度`budget_tokens`未设置则默认为`max_tokens`的`80%`
-   - 支持通过设置`reasoning.effort="low/medium/high"`或者`reasoning.max_tokens=xx`来控制推理长度
-   - `reasoning.max_tokens`的优先级高于`reasoning.effort`
-   - `reasoning.effort`的`high/medium/low`分别对应`max_tokens`的`80%/50%/20%`
-   - `reasoing.max_tokens`不可超过`max_tokens`且不能低于`1024`
-4. 推理模型（claude-3.5，claude-3.7，claude-4等）开启推理后，`temperature/top_k/top_p`等参数只能设置为`1`，参考[文档](https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking)。
+#### 注意事项
+- 🔄 **Token设置**: 推荐设置较大的 `max_tokens` 值
+- ⚡ **响应时间**: 推理模型响应时间较长，请耐心等待
+- 📋 **内容合规**: 如返回400错误，请检查提示词是否符合使用规范
 
-### Google（Gemini）
+### 🎭 Claude推理模型
+Claude推理模型默认**关闭推理**，需手动启用：
 
-Gemini每个模型的参数规则和约束不一致，需要看具体模型。另Gemini推理模型的`reasoning_tokens`的计数不包含在输出tokens即`completion_tokens`中，
+#### 启用推理
+```python
+response = client.chat.completions.create(
+    model="claude-3-5-sonnet-20241022",
+    max_tokens=4096,
+    messages=[{"role": "user", "content": "分析这个复杂问题..."}],
+    reasoning={
+        "effort": "medium",     # 推理强度: low/medium/high
+        "max_tokens": 2048      # 推理专用token数量
+    }
+)
+```
 
--  `2.5-flash`默认开启推理，可以通过`reasoning.max_tokens`控制推理长度（最低为`1024`），支持设置`reasoning.max_tokens=0`来关闭推理，返回推理过程
--  `2.5-pro`默认开启推理且不可关闭，可以通过`reasoning.max_tokens`控制推理长度（最低为`1024`），返回推理过程。
--  `gemini-2.5-flash-preview-04-17`对应的`thinking`和`non-thinking`模型不支持`reasoning`参数。
--  若响应返回'message': 'No candidates returned表示内容审核后不合规，需要修改内容。参考[文档](https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/configure-safety-filters?hl=zh-cn)
+#### 推理参数说明
+- `effort`: 控制推理深度，对应 `max_tokens` 的 20%/50%/80%
+- `max_tokens`: 推理过程专用token，不能超过总 `max_tokens`
+- ⚠️ **参数限制**: 启用推理后，`temperature` 等参数只能设为1
+
+### 🔮 Gemini推理模型
+
+#### Gemini 2.5-flash
+```python
+response = client.chat.completions.create(
+    model="gemini-2.5-flash",
+    messages=[{"role": "user", "content": "深度分析..."}],
+    reasoning={
+        "max_tokens": 2048  # 最低1024，设为0可关闭推理
+    }
+)
+```
+
+#### Gemini 2.5-pro
+```python
+response = client.chat.completions.create(
+    model="gemini-2.5-pro", 
+    messages=[{"role": "user", "content": "复杂推理任务..."}],
+    reasoning={
+        "max_tokens": 4096  # 默认开启，不可关闭，最低1024
+    }
+)
+```
+
+---
+
+## 计费说明
+
+### 📊 计费模式
+
+#### 基于Token计费
+适用于文本生成模型（OpenAI、Claude、Gemini等）：
+```
+实际费用 = Token数量 × 模型官方单价 × 渠道折扣 × 用户等级折扣
+```
+
+#### 按次计费  
+适用于生成类模型（Midjourney、Suno等）：
+```
+实际费用 = 调用次数 × 模型固定单价 × 渠道折扣 × 用户等级折扣
+```
+
+### 💰 优惠政策
+- 🏢 **企业客户**: 享受商用优惠定价和专用高速通道
+- 📈 **大用量客户**: 自动升级用户等级，享受更低折扣
+- 🔄 **动态定价**: 价格根据市场情况和成本进行合理调整
+
+---
+
+## 最佳实践
+
+### ⚡ 性能优化
+
+#### 1. 合理选择模型
+```python
+# 简单任务使用经济模型
+simple_response = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[{"role": "user", "content": "翻译这个句子"}]
+)
+
+# 复杂任务使用高级模型
+complex_response = client.chat.completions.create(
+    model="gpt-4o",
+    messages=[{"role": "user", "content": "分析这份复杂的商业报告"}]
+)
+```
+
+#### 2. 优化提示词
+```python
+# ❌ 低效提示
+bad_prompt = "帮我写代码"
+
+# ✅ 高效提示
+good_prompt = """
+作为一个专业的Python开发者，请帮我：
+1. 编写一个处理CSV文件的函数
+2. 包含错误处理和数据验证  
+3. 添加详细的注释和文档字符串
+4. 返回处理结果的统计信息
+"""
+```
+
+#### 3. 流式响应
+```python
+# 启用流式响应提升用户体验
+stream = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=[{"role": "user", "content": "写一篇长文章"}],
+    stream=True
+)
+
+for chunk in stream:
+    if chunk.choices[0].delta.content is not None:
+        print(chunk.choices[0].delta.content, end="")
+```
+
+### 🔒 安全建议
+
+#### API密钥管理
+```python
+import os
+from openai import OpenAI
+
+# ✅ 使用环境变量存储密钥
+client = OpenAI(
+    base_url="https://api.pandalla.ai/v1",
+    api_key=os.getenv("OMNIAI_API_KEY")
+)
+
+# ❌ 不要在代码中硬编码密钥
+# api_key="sk-hardcoded-key-in-code"  # 危险！
+```
+
+#### 内容过滤
+```python
+# 实现内容安全检查
+def safe_chat_completion(user_input):
+    # 检查输入内容
+    if contains_sensitive_content(user_input):
+        return {"error": "Content not allowed"}
+    
+    # 正常调用API
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[{"role": "user", "content": user_input}]
+    )
+    return response
+```
+
+---
+
+## 常见问题
+
+### ❓ 常见错误处理
+
+#### 身份认证失败
+```python
+try:
+    response = client.chat.completions.create(...)
+except Exception as e:
+    if "401" in str(e):
+        print("API密钥无效，请检查密钥是否正确")
+    elif "403" in str(e):
+        print("权限不足，请检查账户余额或权限设置")
+```
+
+#### 模型不可用
+```python
+# 模型回退策略
+def robust_chat_completion(messages, preferred_model="gpt-4o"):
+    models = [preferred_model, "gpt-4o-mini", "gpt-3.5-turbo"]
+    
+    for model in models:
+        try:
+            return client.chat.completions.create(
+                model=model, 
+                messages=messages
+            )
+        except Exception as e:
+            print(f"Model {model} failed: {e}")
+            continue
+    
+    raise Exception("All models failed")
+```
+
+### 📞 技术支持
+
+遇到问题？我们随时为您提供帮助：
+
+- 📧 **技术支持邮箱**: support@pandalla.ai
+- 📱 **企业客户热线**: 专享7x24小时技术支持
+- 📚 **在线文档**: [https://docs.pandalla.ai](https://docs.pandalla.ai)
+- 💬 **社区论坛**: [https://community.pandalla.ai](https://community.pandalla.ai)
+
+---
+
+立即开始使用OmniAI，体验最便捷的AI模型接入服务！
