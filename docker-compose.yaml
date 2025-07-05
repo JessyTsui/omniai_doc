@@ -1,13 +1,5 @@
 version: "3.8"
 
-networks:
-  omniai-doc-network:
-    driver: bridge
-
-volumes:
-  frontend_log:
-  nginx_cache:
-
 services:
   omniai-doc:
     container_name: omniai-doc
@@ -19,12 +11,7 @@ services:
     image: omniai-doc:latest
     ports:
       - "${OMNIAI_PORT:-10008}:8080"
-    volumes:
-      - "frontend_log:/var/log/nginx:rw"
-      - "nginx_cache:/var/cache/nginx:rw"
     restart: unless-stopped
-    networks:
-      - omniai-doc-network
     environment:
       - NODE_ENV=production
       - TZ=Asia/Shanghai
