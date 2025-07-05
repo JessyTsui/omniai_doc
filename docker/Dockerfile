@@ -30,16 +30,14 @@ RUN rm -rf /usr/share/nginx/html/*
 # Copy built application from build stage
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 
-# Add non-root user
-RUN addgroup -g 1001 -S nginx && \
-    adduser -S -D -H -u 1001 -h /var/cache/nginx -s /sbin/nologin -G nginx -g nginx nginx
+# Note: nginx user already exists in nginx:stable-alpine image
 
-# Set permissions
+# Set permissions for nginx user
 RUN chown -R nginx:nginx /usr/share/nginx/html && \
     chown -R nginx:nginx /var/cache/nginx && \
     chown -R nginx:nginx /var/log/nginx && \
-    touch /var/run/nginx.pid && \
-    chown nginx:nginx /var/run/nginx.pid
+    mkdir -p /tmp && \
+    chown nginx:nginx /tmp
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
