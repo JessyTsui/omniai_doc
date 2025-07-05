@@ -19,7 +19,7 @@ description: A guide
 
 **请注意：生成令牌的时候需注意分组，代表了不同的渠道消耗**
 
-![](/public/token_index.jpg)
+![Token Index](/token_index.jpg)
 
 2. 参照`OpenAI`[官方文档](https://platform.openai.com/docs/api-reference/introduction)进行模型配置
 

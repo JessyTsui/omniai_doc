@@ -6,17 +6,44 @@ networks:
 
 volumes:
   frontend_log:
+  nginx_cache:
 
 services:
   omniai-doc:
     container_name: omniai-doc
     build:
-      context: .  # 指定 Dockerfile 的上下文目录
-      dockerfile: ./docker/Dockerfile  # 指定 Dockerfile 的文件名
+      context: .
+      dockerfile: ./docker/Dockerfile
+      args:
+        - NODE_ENV=production
+    image: omniai-doc:latest
     ports:
-      - "10008:8080"
+      - "${OMNIAI_PORT:-10008}:8080"
     volumes:
-      - "frontend_log:/var/log"
-    restart: always
+      - "frontend_log:/var/log/nginx:rw"
+      - "nginx_cache:/var/cache/nginx:rw"
+    restart: unless-stopped
     networks:
       - omniai-doc-network
+    environment:
+      - NODE_ENV=production
+      - TZ=Asia/Shanghai
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
